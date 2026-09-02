@@ -15,7 +15,7 @@ export default function RelojDeArena() {
       <p className={styles.subtitulo}>
         En cuanto el administrador lo abra, aquí va a aparecer el avance del equipo.
       </p>
-      <Link className={styles.linkAdmin} to="/admin/login">
+      <Link className={styles.linkAdmin} to="/admin">
         Acceder como administrador
       </Link>
     </main>
