@@ -143,7 +143,7 @@ function Tablero({ datos }) {
         </section>
       </div>
 
-      <Link className={styles.linkAdmin} to="/admin/login">
+      <Link className={styles.linkAdmin} to="/admin">
         Acceder como administrador
       </Link>
     </main>
