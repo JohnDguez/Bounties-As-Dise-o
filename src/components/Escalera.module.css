@@ -1,0 +1,97 @@
+.escalera {
+  width: 100%;
+  max-width: 620px;
+  height: auto;
+  display: block;
+  overflow: visible;
+}
+
+.riel {
+  fill: rgba(255, 255, 255, 0.04);
+  stroke: rgba(255, 255, 255, 0.08);
+}
+
+.etiqueta {
+  font: 400 11px 'IBM Plex Mono', monospace;
+  fill: #4a4a54;
+  letter-spacing: 0.06em;
+}
+
+.etiquetaViva {
+  font: 400 11px 'IBM Plex Mono', monospace;
+  fill: #9aa0aa;
+  letter-spacing: 0.06em;
+}
+
+.etiquetaDesborde {
+  font: 400 11px 'IBM Plex Mono', monospace;
+  fill: #ff8ac4;
+  letter-spacing: 0.06em;
+}
+
+.salvavidasOff {
+  fill: transparent;
+  stroke: rgba(255, 255, 255, 0.22);
+}
+
+.salvavidasOn {
+  fill: #facc15;
+  stroke: #fde68a;
+  filter: drop-shadow(0 0 6px rgba(250, 204, 21, 0.65));
+}
+
+.salvavidasTxtOff {
+  font: 500 10px 'IBM Plex Mono', monospace;
+  fill: #4a4a54;
+  letter-spacing: 0.06em;
+}
+
+.salvavidasTxtOn {
+  font: 500 10px 'IBM Plex Mono', monospace;
+  fill: #facc15;
+  letter-spacing: 0.06em;
+}
+
+.astaPendiente {
+  fill: #3a3a44;
+}
+
+.astaGanada {
+  fill: #b45309;
+  filter: drop-shadow(0 0 8px rgba(250, 204, 21, 0.45));
+}
+
+.banderaOndeando {
+  fill: #facc15;
+  transform-box: fill-box;
+  transform-origin: left center;
+  animation: ondear 1.8s ease-in-out infinite;
+}
+
+.gallardete {
+  fill: #4c4c57;
+  stroke: rgba(255, 255, 255, 0.16);
+  transform-box: fill-box;
+  transform-origin: top left;
+  animation: balanceo 5s ease-in-out infinite;
+}
+
+@keyframes ondear {
+  0%,
+  100% {
+    transform: scaleX(1) skewY(0deg);
+  }
+  50% {
+    transform: scaleX(1.04) skewY(-3deg);
+  }
+}
+
+@keyframes balanceo {
+  0%,
+  100% {
+    transform: rotate(-3deg);
+  }
+  50% {
+    transform: rotate(3deg);
+  }
+}

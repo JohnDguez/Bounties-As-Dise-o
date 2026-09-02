@@ -1,0 +1,108 @@
+.contenedor {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  text-align: center;
+  padding: 24px;
+  background: #0a0a0c;
+  color: #e4e4e7;
+}
+
+.reloj {
+  width: 72px;
+  height: 100px;
+  margin-bottom: 10px;
+}
+
+.marco {
+  fill: rgba(255, 255, 255, 0.03);
+  stroke: #52525b;
+  stroke-width: 2;
+}
+
+.granoArriba {
+  fill: #9296a1;
+  animation: vaciar 2.4s ease-in-out infinite;
+}
+
+.granoAbajo {
+  fill: #9296a1;
+  animation: llenar 2.4s ease-in-out infinite;
+}
+
+.hilo {
+  fill: #9296a1;
+  animation: caer 2.4s linear infinite;
+}
+
+@keyframes vaciar {
+  0%,
+  15% {
+    opacity: 1;
+    r: 4;
+  }
+  85%,
+  100% {
+    opacity: 0.25;
+    r: 1.5;
+  }
+}
+
+@keyframes llenar {
+  0%,
+  15% {
+    opacity: 0.25;
+    r: 1.5;
+  }
+  85%,
+  100% {
+    opacity: 1;
+    r: 4;
+  }
+}
+
+@keyframes caer {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(45px);
+    opacity: 0;
+  }
+}
+
+.marca {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 4px 0 0;
+}
+
+.titulo {
+  font-size: 16px;
+  font-weight: 500;
+  color: #e4e4e7;
+  margin: 2px 0 0;
+}
+
+.subtitulo {
+  font-size: 13px;
+  color: #9296a1;
+  max-width: 320px;
+  margin: 0;
+}
+
+.linkAdmin {
+  margin-top: 22px;
+  font-size: 13px;
+  color: #71717a;
+}
