@@ -96,13 +96,15 @@
 
 .subtitulo {
   font-size: 13px;
-  color: #9296a1;
+  font-weight: 400;
+  color: #f4f4f5;
   max-width: 320px;
   margin: 0;
 }
 
 .linkAdmin {
   margin-top: 22px;
-  font-size: 13px;
-  color: #71717a;
+  font-size: 12px;
+  font-weight: 500;
+  color: #f4f4f5;
 }
