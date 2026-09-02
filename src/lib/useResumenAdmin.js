@@ -52,7 +52,8 @@ export function useResumenAdmin() {
           .from('movimientos')
           .select('*')
           .eq('mes_id', mes.id)
-          .order('fecha', { ascending: true })
+          .order('fecha', { ascending: false })
+          .order('creado_en', { ascending: false })
         if (errorMovs) throw errorMovs
         movimientos = movsRaw ?? []
       }
