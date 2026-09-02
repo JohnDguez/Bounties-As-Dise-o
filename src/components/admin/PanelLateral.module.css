@@ -1,0 +1,212 @@
+.tarjeta {
+  background: #fff;
+  border: 1px solid #d9d5cd;
+  border-radius: 8px;
+  padding: 15px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.encabezadoReglas {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 13px 16px;
+  border-bottom: 1px solid #e3dfd7;
+  background: #f7f5f1;
+  margin: -15px -16px 10px;
+}
+
+.encabezadoReglasTexto {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.titulo {
+  font-size: 13px;
+  font-weight: 700;
+  color: #1c1b18;
+}
+
+.sub {
+  font-size: 11px;
+  font-weight: 500;
+  color: #1c1b18;
+  margin: 0 0 12px;
+}
+
+.estadoChip {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 10.5px;
+  font-weight: 700;
+  background: #efece6;
+  color: #5c5952;
+  border: 1px solid #ddd8d0;
+}
+
+.reglaFila {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-bottom: 9px;
+  border-bottom: 1px solid #f0ede8;
+}
+
+.reglaTextos {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.reglaLabel {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #1c1b18;
+}
+
+.reglaSub {
+  font-size: 11px;
+  font-weight: 400;
+  color: #1c1b18;
+}
+
+.reglaValor {
+  flex: none;
+  padding: 6px 11px;
+  border-radius: 5px;
+  border: 1px solid #e3dfd7;
+  background: #f4f2ee;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: #1c1b18;
+  min-width: 90px;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.direccionFila {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 11px 12px;
+  margin-top: 4px;
+  border-radius: 6px;
+  background: #f7f5f1;
+  border: 1px solid #e3dfd7;
+}
+
+.direccionEstado {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: 4px;
+}
+
+/* ---------- Desglose ---------- */
+.desgloseItem {
+  padding: 8px 0 9px;
+  border-bottom: 1px solid #f0ede8;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.desgloseTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.desgloseIzq {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.desgloseNum {
+  width: 16px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #1c1b18;
+}
+
+.desgloseK {
+  font-size: 12.5px;
+  color: #1c1b18;
+}
+
+.desgloseSub {
+  font-size: 10.5px;
+  font-weight: 400;
+  color: #1c1b18;
+}
+
+.desgloseV {
+  font-size: 13px;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+.desgloseBarra {
+  height: 6px;
+  border-radius: 3px;
+  background: #f4f2ee;
+  margin-left: 24px;
+  overflow: hidden;
+}
+
+.desgloseBarraLlena {
+  height: 100%;
+  border-radius: 3px;
+}
+
+/* ---------- Historial de cierres ---------- */
+.historialFila {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 8px 0;
+  border-top: 1px solid #f0ede8;
+}
+
+.historialMes {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #1c1b18;
+  width: 90px;
+}
+
+.historialMeta {
+  font-size: 11.5px;
+  font-weight: 400;
+  color: #1c1b18;
+}
+
+.historialAv {
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.historialBono {
+  font-size: 11.5px;
+  font-weight: 500;
+  color: #1c1b18;
+  width: 90px;
+  text-align: right;
+}
+
+.vacio {
+  font-size: 12px;
+  color: #1c1b18;
+  padding: 8px 0;
+}

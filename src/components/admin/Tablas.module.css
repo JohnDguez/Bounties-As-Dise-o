@@ -1,0 +1,203 @@
+.tarjeta {
+  background: #fff;
+  border: 1px solid #d9d5cd;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.tarjetaEnfasis {
+  background: #fff;
+  border: 1px solid #b9b3a7;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.encabezado {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 18px;
+  border-bottom: 1px solid #e3dfd7;
+  background: #f7f5f1;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.encabezadoTextos {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.titulo {
+  font-size: 13px;
+  font-weight: 700;
+  color: #1c1b18;
+}
+
+.subtitulo {
+  font-size: 11.5px;
+  font-weight: 500;
+  color: #1c1b18;
+}
+
+.conteoBadge {
+  font-size: 11.5px;
+  font-weight: 600;
+  color: #1c1b18;
+}
+
+.montoBadge {
+  padding: 4px 9px;
+  border-radius: 5px;
+  background: #efece6;
+  border: 1px solid #ddd8d0;
+  font-size: 12px;
+  font-weight: 700;
+  color: #1c1b18;
+}
+
+.vacio {
+  padding: 44px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 7px;
+  text-align: center;
+}
+
+.vacioIcono {
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  border: 1px dashed #c9c4ba;
+}
+
+.vacioTitulo {
+  font-size: 13px;
+  font-weight: 600;
+  color: #1c1b18;
+}
+
+.vacioTexto {
+  font-size: 12px;
+  font-weight: 400;
+  color: #1c1b18;
+  max-width: 380px;
+}
+
+.tabla {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.filaEncabezado {
+  background: #fbfaf8;
+}
+
+.th {
+  text-align: left;
+  padding: 9px 18px;
+  font-size: 10.5px;
+  font-weight: 700;
+  color: #1c1b18;
+  letter-spacing: 0.07em;
+  border-bottom: 1px solid #e3dfd7;
+  white-space: nowrap;
+}
+
+.thDer {
+  text-align: right;
+}
+
+.thAvance {
+  width: 150px;
+}
+
+.tdFuerte {
+  font-weight: 700;
+}
+
+.fila {
+  border-bottom: 1px solid #f0ede8;
+}
+
+.td {
+  padding: 12px 18px;
+  vertical-align: top;
+  font-size: 12.5px;
+  font-weight: 400;
+  color: #1c1b18;
+}
+
+.tdDer {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.clienteNombre {
+  font-size: 13px;
+  font-weight: 700;
+  color: #1c1b18;
+}
+
+.clienteDesc {
+  font-size: 12px;
+  font-weight: 400;
+  color: #1c1b18;
+  margin-top: 1px;
+}
+
+.tdClienteFuerte {
+  font-weight: 600;
+}
+
+.barraProgreso {
+  height: 5px;
+  border-radius: 3px;
+  background: #eae6df;
+  overflow: hidden;
+}
+
+.barraProgresoLlena {
+  height: 100%;
+  border-radius: 3px;
+  background: #4d7c3f;
+}
+
+.progresoTexto {
+  margin-top: 4px;
+  font-size: 11px;
+  font-weight: 500;
+  color: #1c1b18;
+}
+
+.diasBadge {
+  display: inline-block;
+  margin-top: 3px;
+  padding: 2px 7px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.tipoBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.piePagina {
+  padding: 9px 18px;
+  background: #fbfaf8;
+  border-top: 1px solid #e3dfd7;
+  font-size: 11px;
+  font-weight: 400;
+  color: #1c1b18;
+}

@@ -1,0 +1,296 @@
+.fila {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 12px;
+  align-items: stretch;
+}
+
+@media (max-width: 900px) {
+  .fila {
+    grid-template-columns: 1fr;
+  }
+}
+
+.tarjeta {
+  padding: 16px 20px 18px;
+  background: #fff;
+  border: 1px solid #b9b3a7;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.encabezadoAvance {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.avanceNumero {
+  display: flex;
+  align-items: baseline;
+  gap: 13px;
+}
+
+.avanceGrande {
+  font-size: 48px;
+  font-weight: 700;
+  color: #1c1b18;
+  letter-spacing: -0.04em;
+  font-variant-numeric: tabular-nums;
+}
+
+.avanceEtiquetas {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.avanceTitulo {
+  font-size: 13px;
+  font-weight: 700;
+  color: #1c1b18;
+}
+
+.avanceSub {
+  font-size: 11.5px;
+  font-weight: 500;
+  color: #1c1b18;
+}
+
+.sinMermas {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 3px;
+}
+
+.sinMermasEtiqueta {
+  font-size: 10.5px;
+  font-weight: 700;
+  color: #1c1b18;
+  letter-spacing: 0.07em;
+}
+
+.sinMermasValor {
+  display: flex;
+  align-items: baseline;
+  gap: 7px;
+}
+
+.sinMermasNumero {
+  font-size: 26px;
+  font-weight: 700;
+  color: #3f6633;
+  letter-spacing: -0.03em;
+  font-variant-numeric: tabular-nums;
+}
+
+.deltaBadge {
+  padding: 2px 7px;
+  border-radius: 4px;
+  background: #f2efe9;
+  border: 1px solid #ddd8d0;
+  font-size: 11px;
+  font-weight: 600;
+  color: #1c1b18;
+}
+
+.barraWrap {
+  position: relative;
+  padding-top: 14px;
+}
+
+.tick {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: #c4beb4;
+}
+
+.tickEtiqueta {
+  position: absolute;
+  top: 0;
+  transform: translateX(-50%);
+  font-size: 9.5px;
+  font-weight: 600;
+  color: #1c1b18;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+
+.tickMeta {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: #1c1b18;
+}
+
+.tickMetaEtiqueta {
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-size: 9.5px;
+  font-weight: 700;
+  color: #1c1b18;
+  letter-spacing: 0.05em;
+}
+
+.barra {
+  display: flex;
+  height: 30px;
+  border-radius: 5px;
+  background: #f0ede8;
+  border: 1px solid #ddd8d0;
+  overflow: hidden;
+}
+
+.barraNeto {
+  background: linear-gradient(180deg, #5d8f4c, #41682f);
+}
+
+.barraMerma {
+  background: repeating-linear-gradient(45deg, #c98a3f 0 5px, #b87b34 5px 10px);
+}
+
+.leyenda {
+  display: flex;
+  gap: 22px;
+  flex-wrap: wrap;
+}
+
+.leyendaItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.leyendaChip {
+  margin-top: 4px;
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  border-width: 1px;
+  border-style: solid;
+  flex: none;
+}
+
+.leyendaTexto {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.leyendaValor {
+  font-size: 13px;
+  font-weight: 700;
+  color: #1c1b18;
+  font-variant-numeric: tabular-nums;
+}
+
+.leyendaLabel {
+  font-size: 10.5px;
+  font-weight: 500;
+  color: #1c1b18;
+}
+
+.nota {
+  font-size: 11px;
+  font-weight: 400;
+  color: #1c1b18;
+  line-height: 1.4;
+}
+
+/* ---------- Bolsa del bono ---------- */
+.bolsaEncabezado {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.bolsaTitulo {
+  font-size: 13px;
+  font-weight: 700;
+  color: #1c1b18;
+}
+
+.bolsaSub {
+  font-size: 11px;
+  font-weight: 500;
+  color: #1c1b18;
+}
+
+.bolsaBloque {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.bolsaFila {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.bolsaLabel {
+  font-size: 11px;
+  font-weight: 500;
+  color: #1c1b18;
+}
+
+.bolsaLabelFuerte {
+  font-size: 11.5px;
+  font-weight: 700;
+  color: #1c1b18;
+}
+
+.bolsaValor {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #1c1b18;
+  font-variant-numeric: tabular-nums;
+}
+
+.bolsaValorFuerte {
+  font-size: 15px;
+  font-weight: 700;
+  color: #1c1b18;
+  font-variant-numeric: tabular-nums;
+}
+
+.bolsaBarraFina {
+  height: 10px;
+  border-radius: 3px;
+  background: #f0ede8;
+  overflow: hidden;
+}
+
+.bolsaBarraGruesa {
+  position: relative;
+  height: 18px;
+  border-radius: 3px;
+  background: #f0ede8;
+  overflow: hidden;
+  display: flex;
+}
+
+.topeTick {
+  position: relative;
+  height: 5px;
+  border-radius: 3px;
+  background: #f0ede8;
+}
+
+.topeTickMarca {
+  position: absolute;
+  top: -4px;
+  bottom: -4px;
+  width: 1px;
+  background: #8a5a2b;
+}
