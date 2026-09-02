@@ -1,16 +1,29 @@
-function App() {
-  const hoy = new Date().toLocaleDateString('es-MX', {
-    day: 'numeric',
-    month: 'long',
-    year: 'numeric',
-  })
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
+import RutaProtegida from './components/RutaProtegida'
+import { AuthProvider } from './lib/AuthContext'
+import LoginAdmin from './paginas/LoginAdmin'
+import PanelAdmin from './paginas/PanelAdmin'
+import VistaColaborador from './paginas/VistaColaborador'
 
+function App() {
   return (
-    <main className="pagina">
-      <h1>Bounties As Diseño</h1>
-      <p className="estado">Fase 0 — tubería lista ✅</p>
-      <p className="fecha">{hoy}</p>
-    </main>
+    <BrowserRouter>
+      <AuthProvider>
+        <Routes>
+          <Route path="/" element={<VistaColaborador />} />
+          <Route path="/admin/login" element={<LoginAdmin />} />
+          <Route
+            path="/admin"
+            element={
+              <RutaProtegida>
+                <PanelAdmin />
+              </RutaProtegida>
+            }
+          />
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
+      </AuthProvider>
+    </BrowserRouter>
   )
 }
 
