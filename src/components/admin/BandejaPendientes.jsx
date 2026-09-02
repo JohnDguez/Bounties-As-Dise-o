@@ -1,4 +1,7 @@
+import { useState } from 'react'
 import { pesos } from '../../lib/formato'
+import ModalDescartar from './ModalDescartar'
+import ModalRegistrarPago from './ModalRegistrarPago'
 import styles from './Tablas.module.css'
 
 function badgeDias(dias) {
@@ -7,8 +10,16 @@ function badgeDias(dias) {
   return { bg: 'transparent', fg: '#1c1b18' }
 }
 
-export default function BandejaPendientes({ pendientes }) {
+export default function BandejaPendientes({ pendientes, meta, avanceActual, ivaPct, onExito }) {
+  const [paraPago, setParaPago] = useState(null)
+  const [paraDescarte, setParaDescarte] = useState(null)
   const totalSaldo = pendientes.reduce((acc, p) => acc + p.saldo, 0)
+
+  function alTerminar() {
+    setParaPago(null)
+    setParaDescarte(null)
+    onExito()
+  }
 
   return (
     <div className={styles.tarjetaEnfasis}>
@@ -42,6 +53,7 @@ export default function BandejaPendientes({ pendientes }) {
               <th className={`${styles.th} ${styles.thDer}`}>SALDO</th>
               <th className={`${styles.th} ${styles.thAvance}`}>AVANCE DE PAGO</th>
               <th className={styles.th}>ENTREGA</th>
+              <th className={`${styles.th} ${styles.thDer}`}>ACCIONES</th>
             </tr>
           </thead>
           <tbody>
@@ -57,9 +69,7 @@ export default function BandejaPendientes({ pendientes }) {
                   </td>
                   <td className={`${styles.td} ${styles.tdDer}`}>{pesos(p.monto_total)}</td>
                   <td className={`${styles.td} ${styles.tdDer}`}>{pesos(p.abonado)}</td>
-                  <td className={`${styles.td} ${styles.tdDer} ${styles.tdFuerte}`}>
-                    {pesos(p.saldo)}
-                  </td>
+                  <td className={`${styles.td} ${styles.tdDer} ${styles.tdFuerte}`}>{pesos(p.saldo)}</td>
                   <td className={styles.td}>
                     <div className={styles.barraProgreso}>
                       <div className={styles.barraProgresoLlena} style={{ width: `${pw}%` }} />
@@ -73,13 +83,36 @@ export default function BandejaPendientes({ pendientes }) {
                       {dias} días
                     </span>
                   </td>
+                  <td className={`${styles.td} ${styles.tdDer} ${styles.tdAcciones}`}>
+                    <button className={styles.botonFilaPrincipal} onClick={() => setParaPago(p)}>
+                      Registrar pago
+                    </button>{' '}
+                    <button className={styles.botonFilaSecundario} onClick={() => setParaDescarte(p)}>
+                      Descartar
+                    </button>
+                  </td>
                 </tr>
               )
             })}
           </tbody>
         </table>
       )}
-      <div className={styles.piePagina}>Descartar pide un motivo por escrito y deja registro (próxima fase).</div>
+      <div className={styles.piePagina}>Descartar pide un motivo por escrito y deja registro.</div>
+
+      {paraPago && (
+        <ModalRegistrarPago
+          pendiente={paraPago}
+          meta={meta}
+          avanceActual={avanceActual}
+          ivaPct={ivaPct}
+          onClose={() => setParaPago(null)}
+          onExito={alTerminar}
+        />
+      )}
+
+      {paraDescarte && (
+        <ModalDescartar pendiente={paraDescarte} onClose={() => setParaDescarte(null)} onExito={alTerminar} />
+      )}
     </div>
   )
 }
