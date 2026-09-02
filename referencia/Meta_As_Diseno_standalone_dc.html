@@ -1,0 +1,1079 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@200;300;400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0a0a0c;font-family:Archivo,system-ui,sans-serif}
+a{color:#22d3ee}a:hover{color:#67e8f9}
+@keyframes wv{0%,100%{d:path("M0,2 C28,12 58,-6 116,6 L116,44 C58,56 28,38 0,48 Z")}50%{d:path("M0,2 C28,-6 58,12 116,-2 L116,36 C58,50 28,30 0,48 Z")}}
+@keyframes glo{0%,100%{opacity:.45}50%{opacity:.9}}
+@keyframes rise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@keyframes swy{0%,100%{transform:rotate(-1.5deg)}50%{transform:rotate(1.5deg)}}
+</style>
+</helmet>
+<template id="__bundler_thumbnail" data-bg-color="#0a0a0c">
+<svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+<rect width="1200" height="800" fill="#0a0a0c"></rect>
+<rect x="300" y="520" width="130" height="120" fill="#2f8fd8"></rect>
+<rect x="430" y="440" width="130" height="200" fill="#3fae63"></rect>
+<rect x="560" y="360" width="130" height="280" fill="#e0a020"></rect>
+<rect x="690" y="280" width="130" height="360" fill="#ef7a3a"></rect>
+<rect x="748" y="150" width="9" height="130" fill="#d8a63c"></rect>
+<path d="M757 160 C790 175 830 150 900 165 L900 218 C830 233 790 208 757 222 Z" fill="#f4c542"></path>
+<rect x="300" y="640" width="520" height="4" fill="#2a2a33"></rect>
+</svg>
+</template>
+<div style="min-height:100vh;background:#0a0a0c">
+
+<div style="position:sticky;top:0;z-index:50;display:flex;flex-wrap:wrap;align-items:center;gap:18px;padding:12px 20px;background:#141418;border-bottom:1px solid #26262e;font-family:'IBM Plex Sans',system-ui,sans-serif">
+  <div style="display:flex;flex-direction:column;gap:1px;padding-right:14px;border-right:1px solid #2e2e38">
+    <span style="font:600 12px/1.2 'IBM Plex Sans',sans-serif;color:#f4f4f5;letter-spacing:.01em">Meta As Diseño</span>
+    <span style="font:400 10px/1.2 'IBM Plex Mono',monospace;color:#71717a;letter-spacing:.06em">MOCKUPS UI</span>
+  </div>
+  <div style="display:flex;gap:6px">
+    <button type="button" onClick="{{ goColab }}" style="border:none;border-radius:6px;padding:7px 14px;cursor:pointer;font:500 12px 'IBM Plex Sans',sans-serif" style-hover="opacity:.85">Vista colaborador</button>
+    <button type="button" onClick="{{ goAdmin }}" style="border:none;border-radius:6px;padding:7px 14px;cursor:pointer;font:500 12px 'IBM Plex Sans',sans-serif" style-hover="opacity:.85">Vista administrador</button>
+  </div>
+  <div style="width:1px;height:24px;background:#2e2e38"></div>
+  <div style="display:flex;align-items:center;gap:8px">
+    <span style="font:400 10px 'IBM Plex Mono',monospace;color:#71717a;letter-spacing:.06em">ESTADO</span>
+    <div style="display:flex;gap:4px">
+      <sc-for list="{{ stateChips }}" as="c" hint-placeholder-count="5">
+        <button type="button" onClick="{{ c.on }}" style="border:1px solid {{ c.bd }};background:{{ c.bg }};color:{{ c.fg }};border-radius:5px;padding:6px 10px;cursor:pointer;font:500 11px 'IBM Plex Mono',monospace">{{ c.label }}</button>
+      </sc-for>
+    </div>
+  </div>
+</div>
+
+<sc-if value="{{ isColab }}" hint-placeholder-val="{{ true }}">
+<div data-screen-label="Colaborador" style="display:flex;flex-wrap:wrap;gap:36px;align-items:flex-start;justify-content:center;padding:34px 24px 60px;background:radial-gradient(120% 80% at 50% 0%,#12121a 0%,#0a0a0c 60%)">
+
+  <!-- MÓVIL -->
+  <div style="display:flex;flex-direction:column;gap:10px">
+    <span style="font:400 10px 'IBM Plex Mono',monospace;color:#8b8b96;letter-spacing:.1em">MÓVIL 390</span>
+    <div style="width:390px;height:844px;overflow:hidden;border-radius:34px;border:1px solid #26262e;background:linear-gradient(180deg,#0e0e14 0%,#0b0b10 55%,#0a0a0c 100%);box-shadow:0 30px 80px rgba(0,0,0,.6)">
+      <div style="height:100%;overflow-y:auto;overflow-x:hidden;padding:0 0 34px">
+
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:22px 22px 6px">
+          <div style="display:flex;flex-direction:column;gap:2px">
+            <span style="font:600 13px Archivo,sans-serif;color:#e4e4e7;letter-spacing:.01em">Meta del mes</span>
+            <span style="font:400 11px 'IBM Plex Mono',monospace;color:#9296a1;letter-spacing:.08em">{{ mesLabel }}</span>
+          </div>
+          <div style="width:30px;height:30px;border-radius:50%;border:1px solid #2a2a34;display:flex;align-items:center;justify-content:center;font:500 11px 'IBM Plex Mono',monospace;color:#8b8b96">AS</div>
+        </div>
+
+        <div style="position:relative;padding:6px 22px 0">
+          <div style="font-family:Archivo,sans-serif;font-weight:200;font-size:72px;line-height:.95;letter-spacing:-.04em;color:{{ pctColor }};text-shadow:{{ pctShadow }}">{{ displayPct }}<span style="font-size:30px;font-weight:300;letter-spacing:-.01em;color:#8b8b96">%</span></div>
+          <div style="margin-top:8px;font:400 15px/1.3 Archivo,sans-serif;color:#c7c7d1">{{ tramoCopy }}</div>
+          <div style="margin-top:4px;font:400 11px 'IBM Plex Mono',monospace;color:#9296a1;letter-spacing:.06em">{{ tramoTag }}</div>
+        </div>
+
+        <div style="display:flex;justify-content:center;padding:14px 12px 6px">
+          <div style="position:relative;width:352px;height:330px">
+            <div style="position:absolute;left:0;right:0;bottom:26px;padding-left:64px;display:flex;align-items:flex-end;justify-content:center">
+              <sc-for list="{{ stepsM }}" as="s" hint-placeholder-count="4">
+                <div style="position:relative;width:{{ s.w }};height:{{ s.h }};z-index:{{ s.z }}">
+                  <div style="position:absolute;left:0;right:0;top:0;height:{{ s.top }};transform:skewX(-42deg) translateX({{ s.tx }});transform-origin:bottom left;background:{{ s.topBg }};border-top:1px solid {{ s.topBd }}"></div>
+                  <div style="position:absolute;left:0;right:0;top:{{ s.top }};bottom:0;border-left:1px solid rgba(255,255,255,.10);border-top:1px solid {{ s.faceBd }};background:rgba(255,255,255,.018);overflow:hidden">
+                    <div style="position:absolute;left:0;right:0;bottom:0;height:{{ s.fh }};background:{{ s.bg }};box-shadow:{{ s.glow }}"></div>
+                  </div>
+                  <div style="position:absolute;left:0;right:0;bottom:-19px;text-align:center;font:400 9px 'IBM Plex Mono',monospace;color:{{ s.lblC }};letter-spacing:.06em">{{ s.lbl }}</div>
+                  <sc-if value="{{ s.isSalva }}">
+                    <div style="position:absolute;left:0;top:{{ s.top }};transform:translate(-50%,-50%) rotate(45deg);width:9px;height:9px;background:{{ s.salvaBg }};border:1px solid {{ s.salvaBd }};box-shadow:{{ s.salvaGlow }};z-index:25"></div>
+                    <div style="position:absolute;right:100%;margin-right:11px;top:{{ s.top }};transform:translateY(-50%);font:500 9px 'IBM Plex Mono',monospace;color:{{ s.salvaTxt }};letter-spacing:.06em;white-space:nowrap;text-align:right">SALVAVIDAS 75%</div>
+                  </sc-if>
+                  <sc-if value="{{ s.isFlag }}">
+                    <div style="position:absolute;left:50%;bottom:{{ s.poleBottom }};width:3px;height:{{ s.poleH }};z-index:30">
+                      <div style="position:absolute;inset:0;border-radius:2px;background:{{ s.poleBg }};box-shadow:{{ s.poleGlow }}"></div>
+                      <div style="position:absolute;left:50%;bottom:-3px;width:16px;height:5px;border-radius:3px;transform:translateX(-50%);background:{{ s.poleBg }}"></div>
+                      {{ s.flagNode }}
+                    </div>
+                  </sc-if>
+                </div>
+              </sc-for>
+            </div>
+            <div style="position:absolute;left:0;right:0;bottom:20px;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.14),transparent)"></div>
+          </div>
+        </div>
+
+        <sc-if value="{{ celebra }}">
+          <div style="margin:2px 22px 0;padding:10px 14px;border-radius:10px;border:1px solid rgba(250,204,21,.32);background:linear-gradient(90deg,rgba(250,204,21,.14),rgba(250,204,21,.03));display:flex;align-items:center;gap:10px;animation:rise .5s ease both">
+            <div style="width:6px;height:6px;border-radius:50%;background:#facc15;box-shadow:0 0 10px 2px rgba(250,204,21,.7)"></div>
+            <span style="font:500 12px Archivo,sans-serif;color:#fde68a">{{ celebraTxt }}</span>
+          </div>
+        </sc-if>
+
+        <div style="margin:20px 22px 0;padding:16px 18px;border-radius:14px;border:1px solid #22222b;background:#101017;display:flex;align-items:baseline;gap:12px">
+          <span style="font:200 46px/1 Archivo,sans-serif;color:#e8e8ef;letter-spacing:-.03em">{{ diasRest }}</span>
+          <div style="display:flex;flex-direction:column;gap:2px">
+            <span style="font:500 12px Archivo,sans-serif;color:#b6b6c2">días restantes del mes</span>
+            <span style="font:400 11px Archivo,sans-serif;color:#9a9aa6">Cierra el {{ cierreFecha }}</span>
+          </div>
+        </div>
+
+        <div style="margin:22px 22px 0">
+          <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:10px">
+            <span style="font:600 12px 'IBM Plex Mono',monospace;color:#a1a1ad;letter-spacing:.1em">TRABAJOS QUE SUMAN</span>
+            <span style="font:500 12px 'IBM Plex Mono',monospace;color:#22d3ee">{{ nSuman }}</span>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <sc-for list="{{ suman }}" as="t" hint-placeholder-count="4">
+              <div style="display:flex;align-items:flex-start;gap:11px;padding:12px 14px;border-radius:11px;border:1px solid #23232d;background:linear-gradient(90deg,rgba(34,211,238,.05),rgba(34,211,238,0))">
+                <div style="margin-top:5px;width:5px;height:5px;border-radius:50%;background:#22d3ee;box-shadow:0 0 8px 1px rgba(34,211,238,.6);flex:none"></div>
+                <div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:2px">
+                  <span style="font:600 13px Archivo,sans-serif;color:#e6e6ee">{{ t.cliente }}</span>
+                  <span style="font:400 12px Archivo,sans-serif;color:#8b8b99">{{ t.desc }}</span>
+                </div>
+                <span style="font:400 11px 'IBM Plex Mono',monospace;color:#9296a1;flex:none">{{ t.fecha }}</span>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+
+        <div style="margin:22px 22px 0">
+          <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:4px">
+            <span style="font:600 12px 'IBM Plex Mono',monospace;color:#7c7c88;letter-spacing:.1em">EN CAMINO</span>
+            <span style="font:500 12px 'IBM Plex Mono',monospace;color:#7c7c88">{{ nEspera }}</span>
+          </div>
+          <p style="margin:0 0 10px;font:400 11px Archivo,sans-serif;color:#9296a1">Entregados y aprobados. Suman en cuanto el cliente termine de pagar.</p>
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <sc-for list="{{ espera }}" as="t" hint-placeholder-count="4">
+              <div style="padding:12px 14px;border-radius:11px;border:1px dashed #26262f;background:rgba(255,255,255,.012)">
+                <div style="display:flex;align-items:baseline;justify-content:space-between;gap:10px">
+                  <span style="font:500 13px Archivo,sans-serif;color:#b9b9c6">{{ t.cliente }}</span>
+                  <span style="font:400 10px 'IBM Plex Mono',monospace;color:#8b8b96;white-space:nowrap">{{ t.espera }}</span>
+                </div>
+                <div style="margin-top:2px;font:400 12px Archivo,sans-serif;color:#a1a1ad">{{ t.desc }}</div>
+                <div style="margin-top:9px;display:flex;align-items:center;gap:9px">
+                  <div style="flex:1;height:3px;border-radius:2px;background:#1e1e26;overflow:hidden">
+                    <div style="height:100%;border-radius:2px;width:{{ t.pw }};background:rgba(148,163,184,.55)"></div>
+                  </div>
+                  <span style="font:400 10px 'IBM Plex Mono',monospace;color:#9a9aa6;white-space:nowrap">{{ t.pl }}</span>
+                </div>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+
+        <div style="margin:22px 22px 0;padding:16px 18px;border-radius:14px;border:1px solid #26241c;background:rgba(245,158,11,.035)">
+          <div style="font:600 12px 'IBM Plex Mono',monospace;color:#a8925f;letter-spacing:.1em;margin-bottom:10px">DETALLES A CUIDAR</div>
+          <div style="display:flex;align-items:baseline;gap:11px;margin-bottom:12px">
+            <span style="font:200 40px/1 Archivo,sans-serif;color:#e3c98a;letter-spacing:-.03em">{{ nMermas }}</span>
+            <span style="font:400 12px Archivo,sans-serif;color:#8e8a7c">detalles registrados este mes</span>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:9px">
+            <sc-for list="{{ mermas }}" as="m" hint-placeholder-count="3">
+              <div style="display:flex;flex-direction:column;gap:1px;padding-top:9px;border-top:1px solid #232019">
+                <span style="font:500 12px Archivo,sans-serif;color:#a9a49a">{{ m.cliente }}</span>
+                <span style="font:400 12px Archivo,sans-serif;color:#78746c">{{ m.desc }}</span>
+              </div>
+            </sc-for>
+          </div>
+          <p style="margin:12px 0 0;font:400 11px/1.45 Archivo,sans-serif;color:#6d6a62">Se anotan para tenerlos presentes en los siguientes trabajos.</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- DESKTOP -->
+  <div style="display:flex;flex-direction:column;gap:10px">
+    <span style="font:400 10px 'IBM Plex Mono',monospace;color:#8b8b96;letter-spacing:.1em">DESKTOP 1440</span>
+    <div style="width:1440px;border-radius:16px;border:1px solid #26262e;background:linear-gradient(180deg,#0e0e14 0%,#0a0a0c 60%);box-shadow:0 30px 80px rgba(0,0,0,.55)">
+
+      <div style="display:flex;align-items:center;justify-content:space-between;padding:20px 34px;border-bottom:1px solid #1c1c24">
+        <div style="display:flex;align-items:baseline;gap:14px">
+          <span style="font:600 15px Archivo,sans-serif;color:#e9e9f0">Meta As Diseño</span>
+          <span style="font:400 11px 'IBM Plex Mono',monospace;color:#9296a1;letter-spacing:.1em">{{ mesLabel }}</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px">
+          <span style="font:400 12px Archivo,sans-serif;color:#a1a1ad">Equipo As Diseño</span>
+          <div style="width:28px;height:28px;border-radius:50%;border:1px solid #2a2a34;display:flex;align-items:center;justify-content:center;font:500 10px 'IBM Plex Mono',monospace;color:#8b8b96">AS</div>
+        </div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:1fr 440px;gap:0;align-items:start">
+        <div style="position:relative;padding:44px 40px 40px;border-right:1px solid #1c1c24">
+          <div style="display:flex;align-items:flex-start;gap:40px">
+            <div style="flex:none;width:330px;padding-top:14px">
+              <div style="font-family:Archivo,sans-serif;font-weight:200;font-size:128px;line-height:.88;letter-spacing:-.045em;color:{{ pctColor }};text-shadow:{{ pctShadow }}">{{ displayPct }}<span style="font-size:48px;font-weight:300;color:#8b8b96">%</span></div>
+              <div style="margin-top:14px;font:300 22px/1.25 Archivo,sans-serif;color:#d2d2dc">{{ tramoCopy }}</div>
+              <div style="margin-top:6px;font:400 11px 'IBM Plex Mono',monospace;color:#9296a1;letter-spacing:.08em">{{ tramoTag }}</div>
+              <sc-if value="{{ celebra }}">
+                <div style="margin-top:18px;padding:11px 15px;border-radius:10px;border:1px solid rgba(250,204,21,.32);background:linear-gradient(90deg,rgba(250,204,21,.14),rgba(250,204,21,.02));display:flex;align-items:center;gap:10px;animation:rise .5s ease both">
+                  <div style="width:6px;height:6px;border-radius:50%;background:#facc15;box-shadow:0 0 10px 2px rgba(250,204,21,.7)"></div>
+                  <span style="font:500 13px Archivo,sans-serif;color:#fde68a">{{ celebraTxt }}</span>
+                </div>
+              </sc-if>
+              <div style="margin-top:26px;padding:18px 20px;border-radius:14px;border:1px solid #22222b;background:#101017;display:flex;align-items:baseline;gap:14px">
+                <span style="font:200 54px/1 Archivo,sans-serif;color:#e8e8ef;letter-spacing:-.03em">{{ diasRest }}</span>
+                <div style="display:flex;flex-direction:column;gap:2px">
+                  <span style="font:500 13px Archivo,sans-serif;color:#b6b6c2">días restantes del mes</span>
+                  <span style="font:400 12px Archivo,sans-serif;color:#9a9aa6">Cierra el {{ cierreFecha }}</span>
+                </div>
+              </div>
+            </div>
+
+            <div style="flex:1;display:flex;justify-content:center;align-items:flex-end;min-height:440px">
+              <div style="position:relative;width:570px;height:440px">
+                <div style="position:absolute;left:0;right:0;bottom:34px;padding-left:130px;display:flex;align-items:flex-end;justify-content:center">
+                  <sc-for list="{{ stepsD }}" as="s" hint-placeholder-count="4">
+                    <div style="position:relative;width:{{ s.w }};height:{{ s.h }};z-index:{{ s.z }}">
+                      <div style="position:absolute;left:0;right:0;top:0;height:{{ s.top }};transform:skewX(-42deg) translateX({{ s.tx }});transform-origin:bottom left;background:{{ s.topBg }};border-top:1px solid {{ s.topBd }}"></div>
+                      <div style="position:absolute;left:0;right:0;top:{{ s.top }};bottom:0;border-left:1px solid rgba(255,255,255,.10);border-top:1px solid {{ s.faceBd }};background:rgba(255,255,255,.018);overflow:hidden">
+                        <div style="position:absolute;left:0;right:0;bottom:0;height:{{ s.fh }};background:{{ s.bg }};box-shadow:{{ s.glow }}"></div>
+                      </div>
+                      <div style="position:absolute;left:0;right:0;bottom:-24px;text-align:center;font:400 10px 'IBM Plex Mono',monospace;color:{{ s.lblC }};letter-spacing:.08em">{{ s.lbl }}</div>
+                      <sc-if value="{{ s.isSalva }}">
+                        <div style="position:absolute;left:0;top:{{ s.top }};transform:translate(-50%,-50%) rotate(45deg);width:11px;height:11px;background:{{ s.salvaBg }};border:1px solid {{ s.salvaBd }};box-shadow:{{ s.salvaGlow }};z-index:25"></div>
+                        <div style="position:absolute;right:100%;margin-right:15px;top:{{ s.top }};transform:translateY(-50%);font:500 10px 'IBM Plex Mono',monospace;color:{{ s.salvaTxt }};letter-spacing:.08em;white-space:nowrap;text-align:right">SALVAVIDAS 75%</div>
+                      </sc-if>
+                      <sc-if value="{{ s.isFlag }}">
+                        <div style="position:absolute;left:50%;bottom:{{ s.poleBottom }};width:4px;height:{{ s.poleH }};z-index:30">
+                          <div style="position:absolute;inset:0;border-radius:2px;background:{{ s.poleBg }};box-shadow:{{ s.poleGlow }}"></div>
+                          <div style="position:absolute;left:50%;bottom:-4px;width:20px;height:6px;border-radius:3px;transform:translateX(-50%);background:{{ s.poleBg }}"></div>
+                          {{ s.flagNode }}
+                        </div>
+                      </sc-if>
+                    </div>
+                  </sc-for>
+                </div>
+                <div style="position:absolute;left:0;right:0;bottom:28px;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.14),transparent)"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style="padding:34px 32px 40px;display:flex;flex-direction:column;gap:26px">
+          <div>
+            <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:10px">
+              <span style="font:600 11px 'IBM Plex Mono',monospace;color:#a1a1ad;letter-spacing:.12em">TRABAJOS QUE SUMAN</span>
+              <span style="font:500 12px 'IBM Plex Mono',monospace;color:#22d3ee">{{ nSuman }}</span>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:7px">
+              <sc-for list="{{ suman }}" as="t" hint-placeholder-count="4">
+                <div style="display:flex;align-items:flex-start;gap:11px;padding:11px 14px;border-radius:10px;border:1px solid #23232d;background:linear-gradient(90deg,rgba(34,211,238,.05),rgba(34,211,238,0))">
+                  <div style="margin-top:5px;width:5px;height:5px;border-radius:50%;background:#22d3ee;box-shadow:0 0 8px 1px rgba(34,211,238,.6);flex:none"></div>
+                  <div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:1px">
+                    <span style="font:600 13px Archivo,sans-serif;color:#e6e6ee">{{ t.cliente }}</span>
+                    <span style="font:400 12px Archivo,sans-serif;color:#8b8b99">{{ t.desc }}</span>
+                  </div>
+                  <span style="font:400 11px 'IBM Plex Mono',monospace;color:#9296a1;flex:none">{{ t.fecha }}</span>
+                </div>
+              </sc-for>
+            </div>
+          </div>
+
+          <div>
+            <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:3px">
+              <span style="font:600 11px 'IBM Plex Mono',monospace;color:#7c7c88;letter-spacing:.12em">EN CAMINO</span>
+              <span style="font:500 12px 'IBM Plex Mono',monospace;color:#7c7c88">{{ nEspera }}</span>
+            </div>
+            <p style="margin:0 0 10px;font:400 11px Archivo,sans-serif;color:#9296a1">Entregados y aprobados. Suman en cuanto el cliente termine de pagar.</p>
+            <div style="display:flex;flex-direction:column;gap:7px">
+              <sc-for list="{{ espera }}" as="t" hint-placeholder-count="4">
+                <div style="padding:11px 14px;border-radius:10px;border:1px dashed #26262f;background:rgba(255,255,255,.012)">
+                  <div style="display:flex;align-items:baseline;justify-content:space-between;gap:10px">
+                    <span style="font:500 13px Archivo,sans-serif;color:#b9b9c6">{{ t.cliente }}</span>
+                    <span style="font:400 10px 'IBM Plex Mono',monospace;color:#8b8b96;white-space:nowrap">{{ t.espera }}</span>
+                  </div>
+                  <div style="margin-top:1px;font:400 12px Archivo,sans-serif;color:#a1a1ad">{{ t.desc }}</div>
+                  <div style="margin-top:8px;display:flex;align-items:center;gap:9px">
+                    <div style="flex:1;height:3px;border-radius:2px;background:#1e1e26;overflow:hidden">
+                      <div style="height:100%;border-radius:2px;width:{{ t.pw }};background:rgba(148,163,184,.55)"></div>
+                    </div>
+                    <span style="font:400 10px 'IBM Plex Mono',monospace;color:#9a9aa6;white-space:nowrap">{{ t.pl }}</span>
+                  </div>
+                </div>
+              </sc-for>
+            </div>
+          </div>
+
+          <div style="padding:16px 18px;border-radius:14px;border:1px solid #26241c;background:rgba(245,158,11,.035)">
+            <div style="font:600 11px 'IBM Plex Mono',monospace;color:#a8925f;letter-spacing:.12em;margin-bottom:10px">DETALLES A CUIDAR</div>
+            <div style="display:flex;align-items:baseline;gap:11px;margin-bottom:10px">
+              <span style="font:200 42px/1 Archivo,sans-serif;color:#e3c98a;letter-spacing:-.03em">{{ nMermas }}</span>
+              <span style="font:400 12px Archivo,sans-serif;color:#8e8a7c">detalles registrados este mes</span>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <sc-for list="{{ mermas }}" as="m" hint-placeholder-count="3">
+                <div style="display:flex;flex-direction:column;gap:1px;padding-top:8px;border-top:1px solid #232019">
+                  <span style="font:500 12px Archivo,sans-serif;color:#a9a49a">{{ m.cliente }}</span>
+                  <span style="font:400 12px Archivo,sans-serif;color:#78746c">{{ m.desc }}</span>
+                </div>
+              </sc-for>
+            </div>
+            <p style="margin:11px 0 0;font:400 11px/1.45 Archivo,sans-serif;color:#6d6a62">Se anotan para tenerlos presentes en los siguientes trabajos.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</sc-if>
+
+<sc-if value="{{ isAdmin }}">
+<div data-screen-label="Administrador" style="background:#eceae5;padding:26px 26px 60px;font-family:'IBM Plex Sans',system-ui,sans-serif">
+  <div style="max-width:1560px;margin:0 auto">
+
+    <div style="display:flex;align-items:center;justify-content:space-between;gap:20px;padding:16px 20px;background:#fff;border:1px solid #d9d5cd;border-radius:8px">
+      <div style="display:flex;align-items:baseline;gap:16px">
+        <span style="font:600 15px 'IBM Plex Sans',sans-serif;color:#1c1b18">Meta As Diseño</span>
+        <span style="font:500 12px 'IBM Plex Mono',monospace;color:#6d6a63;letter-spacing:.06em">PANEL ADMINISTRADOR · {{ mesLabel }}</span>
+        <span style="padding:3px 8px;border-radius:4px;font:500 11px 'IBM Plex Mono',monospace;background:{{ estadoMesBg }};color:{{ estadoMesFg }};border:1px solid {{ estadoMesBd }}">{{ estadoMes }}</span>
+      </div>
+      <div style="display:flex;gap:8px">
+        <button type="button" style="border:1px solid #cdc8bf;background:#fff;color:#3b3934;border-radius:6px;padding:8px 14px;font:500 12px 'IBM Plex Sans',sans-serif;cursor:pointer" style-hover="background:#f5f3ef">Exportar</button>
+        <button type="button" onClick="{{ openLiq }}" style="border:1px solid #1c1b18;background:#1c1b18;color:#fff;border-radius:6px;padding:8px 14px;font:500 12px 'IBM Plex Sans',sans-serif;cursor:pointer" style-hover="background:#33312c">Registrar pago</button>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:14px">
+      <sc-for list="{{ cards }}" as="c" hint-placeholder-count="5">
+        <div style="padding:13px 15px;background:#fff;border:1px solid #d9d5cd;border-radius:8px;display:flex;flex-direction:column;gap:5px">
+          <span style="font:500 10.5px 'IBM Plex Mono',monospace;color:#7c786f;letter-spacing:.07em">{{ c.k }}</span>
+          <span style="font:600 24px/1.05 'IBM Plex Sans',sans-serif;color:{{ c.color }};letter-spacing:-.02em;font-variant-numeric:tabular-nums">{{ c.v }}</span>
+          <span style="font:400 11px 'IBM Plex Sans',sans-serif;color:#8a867d">{{ c.sub }}</span>
+        </div>
+      </sc-for>
+      <div style="grid-column:span 2;padding:13px 15px;background:#fff;border:1px solid #b9b3a7;border-radius:8px">
+        <span style="font:500 10.5px 'IBM Plex Mono',monospace;color:#7c786f;letter-spacing:.07em">AVANCE REAL vs. AVANCE SIN MERMAS</span>
+        <div style="display:flex;align-items:flex-end;gap:18px;margin-top:7px">
+          <div style="display:flex;flex-direction:column">
+            <span style="font:600 34px/1 'IBM Plex Sans',sans-serif;color:#1c1b18;letter-spacing:-.03em;font-variant-numeric:tabular-nums">{{ avReal }}</span>
+            <span style="font:400 11px 'IBM Plex Sans',sans-serif;color:#8a867d;margin-top:3px">real, con mermas</span>
+          </div>
+          <div style="width:1px;height:38px;background:#ddd8d0"></div>
+          <div style="display:flex;flex-direction:column">
+            <span style="font:600 34px/1 'IBM Plex Sans',sans-serif;color:#4d7c3f;letter-spacing:-.03em;font-variant-numeric:tabular-nums">{{ avSin }}</span>
+            <span style="font:400 11px 'IBM Plex Sans',sans-serif;color:#8a867d;margin-top:3px">sin mermas</span>
+          </div>
+          <div style="flex:1;display:flex;flex-direction:column;align-items:flex-end;gap:4px">
+            <span style="padding:3px 8px;border-radius:4px;background:#f2efe9;border:1px solid #ddd8d0;font:500 11px 'IBM Plex Mono',monospace;color:#5c5952">Δ {{ avDelta }}</span>
+            <span style="font:400 10.5px/1.35 'IBM Plex Sans',sans-serif;color:#8a867d;text-align:right;max-width:190px">{{ avNota }}</span>
+          </div>
+        </div>
+      </div>
+      <div style="grid-column:span 3;padding:13px 15px;background:#fff;border:1px solid #d9d5cd;border-radius:8px;display:flex;align-items:center;gap:26px">
+        <div style="display:flex;flex-direction:column;gap:4px">
+          <span style="font:500 10.5px 'IBM Plex Mono',monospace;color:#7c786f;letter-spacing:.07em">BOLSA DEL BONO ACUMULADA</span>
+          <span style="font:600 24px/1 'IBM Plex Sans',sans-serif;color:#1c1b18;font-variant-numeric:tabular-nums">{{ bolsaBruta }}</span>
+        </div>
+        <span style="font:400 18px 'IBM Plex Sans',sans-serif;color:#b4afa5">→</span>
+        <div style="display:flex;flex-direction:column;gap:4px">
+          <span style="font:500 10.5px 'IBM Plex Mono',monospace;color:#7c786f;letter-spacing:.07em">BOLSA FINAL DESPUÉS DE MERMAS</span>
+          <span style="font:600 24px/1 'IBM Plex Sans',sans-serif;color:#1c1b18;font-variant-numeric:tabular-nums">{{ bolsaFinal }}</span>
+        </div>
+        <div style="flex:1"></div>
+        <span style="font:400 11px/1.4 'IBM Plex Sans',sans-serif;color:#8a867d;max-width:230px">Las mermas pueden restar como máximo el 50% de la bolsa.</span>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 430px;gap:14px;margin-top:14px;align-items:start">
+
+      <div style="display:flex;flex-direction:column;gap:14px">
+
+        <div style="background:#fff;border:1px solid #b9b3a7;border-radius:8px;overflow:hidden">
+          <div style="display:flex;align-items:center;justify-content:space-between;padding:14px 18px;border-bottom:1px solid #e3dfd7;background:#f7f5f1">
+            <div style="display:flex;align-items:baseline;gap:12px">
+              <span style="font:600 13px 'IBM Plex Sans',sans-serif;color:#1c1b18">Bandeja de pendientes</span>
+              <span style="font:400 11.5px 'IBM Plex Sans',sans-serif;color:#7c786f">Entregados, esperando pago. No pertenecen a ningún mes.</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:10px">
+              <span style="font:500 11.5px 'IBM Plex Mono',monospace;color:#5c5952">{{ bandejaCount }}</span>
+              <span style="padding:4px 9px;border-radius:5px;background:#efece6;border:1px solid #ddd8d0;font:600 12px 'IBM Plex Mono',monospace;color:#1c1b18">{{ bandejaMonto }}</span>
+            </div>
+          </div>
+
+          <sc-if value="{{ bandejaVacia }}">
+            <div style="padding:48px 20px;display:flex;flex-direction:column;align-items:center;gap:7px">
+              <div style="width:34px;height:34px;border-radius:8px;border:1px dashed #c9c4ba"></div>
+              <span style="font:500 13px 'IBM Plex Sans',sans-serif;color:#5c5952">Nada en espera</span>
+              <span style="font:400 12px 'IBM Plex Sans',sans-serif;color:#8a867d;max-width:330px;text-align:center">Todos los trabajos entregados están liquidados. Los nuevos aparecerán aquí al registrarlos como pendientes.</span>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ bandejaLlena }}">
+          <table style="width:100%;border-collapse:collapse">
+            <thead>
+              <tr style="background:#fbfaf8">
+                <th style="text-align:left;padding:9px 18px;font:500 10.5px 'IBM Plex Mono',monospace;color:#7c786f;letter-spacing:.07em;border-bottom:1px solid #e3dfd7">CLIENTE / TRABAJO</th>
+                <th style="text-align:right;padding:9px 10px;font:500 10.5px 'IBM Plex Mono',monospace;color:#7c786f;letter-spacing:.07em;border-bottom:1px solid #e3dfd7">TOTAL</th>
+                <th style="text-align:right;padding:9px 10px;font:500 10.5px 'IBM Plex Mono',monospace;color:#7c786f;letter-spacing:.07em;border-bottom:1px solid #e3dfd7">ABONADO</th>
+                <th style="text-align:right;padding:9px 10px;font:500 10.5px 'IBM Plex Mono',monospace;color:#7c786f;letter-spacing:.07em;border-bottom:1px solid #e3dfd7">SALDO</th>
+                <th style="text-align:left;padding:9px 14px;font:500 10.5px 'IBM Plex Mono',monospace;color:#7c786f;letter-spacing:.07em;border-bottom:1px solid #e3dfd7;width:150px">AVANCE DE PAGO</th>
+                <th style="text-align:left;padding:9px 10px;font:500 10.5px 'IBM Plex Mono',monospace;color:#7c786f;letter-spacing:.07em;border-bottom:1px solid #e3dfd7">ENTREGA</th>
+                <th style="text-align:right;padding:9px 18px;font:500 10.5px 'IBM Plex Mono',monospace;color:#7c786f;letter-spacing:.07em;border-bottom:1px solid #e3dfd7">ACCIONES</th>
+              </tr>
+            </thead>
+            <tbody>
+              <sc-for list="{{ bandeja }}" as="r" hint-placeholder-count="4">
+                <tr style="border-bottom:1px solid #f0ede8" style-hover="background:#fbfaf8">
+                  <td style="padding:12px 18px;vertical-align:top">
+                    <div style="font:600 13px 'IBM Plex Sans',sans-serif;color:#1c1b18">{{ r.cliente }}</div>
+                    <div style="font:400 12px 'IBM Plex Sans',sans-serif;color:#7c786f;margin-top:1px">{{ r.desc }}</div>
+                  </td>
+                  <td style="padding:12px 10px;text-align:right;font:400 12.5px 'IBM Plex Mono',monospace;color:#3b3934;vertical-align:top">{{ r.total }}</td>
+                  <td style="padding:12px 10px;text-align:right;font:400 12.5px 'IBM Plex Mono',monospace;color:#4d7c3f;vertical-align:top">{{ r.abonado }}</td>
+                  <td style="padding:12px 10px;text-align:right;font:600 12.5px 'IBM Plex Mono',monospace;color:#1c1b18;vertical-align:top">{{ r.saldo }}</td>
+                  <td style="padding:12px 14px;vertical-align:top">
+                    <div style="height:5px;border-radius:3px;background:#eae6df;overflow:hidden">
+                      <div style="height:100%;border-radius:3px;width:{{ r.pw }};background:#4d7c3f"></div>
+                    </div>
+                    <div style="margin-top:4px;font:400 11px 'IBM Plex Mono',monospace;color:#7c786f">{{ r.pl }} pagado</div>
+                  </td>
+                  <td style="padding:12px 10px;vertical-align:top">
+                    <div style="font:400 12px 'IBM Plex Mono',monospace;color:#5c5952">{{ r.fecha }}</div>
+                    <div style="margin-top:3px;display:inline-block;padding:2px 7px;border-radius:4px;font:500 11px 'IBM Plex Mono',monospace;background:{{ r.diasBg }};color:{{ r.diasFg }};border:1px solid {{ r.diasBd }}">{{ r.dias }}</div>
+                  </td>
+                  <td style="padding:12px 18px;text-align:right;vertical-align:top;white-space:nowrap">
+                    <div style="display:inline-flex;gap:6px">
+                      <button type="button" onClick="{{ r.pay }}" style="border:1px solid #1c1b18;background:#1c1b18;color:#fff;border-radius:5px;padding:6px 11px;font:500 11.5px 'IBM Plex Sans',sans-serif;cursor:pointer" style-hover="background:#33312c">Registrar pago</button>
+                      <button type="button" style="border:1px solid #cdc8bf;background:#fff;color:#6d6a63;border-radius:5px;padding:6px 11px;font:500 11.5px 'IBM Plex Sans',sans-serif;cursor:pointer" style-hover="background:#f5f3ef">Descartar</button>
+                    </div>
+                  </td>
+                </tr>
+              </sc-for>
+            </tbody>
+          </table>
+          <div style="padding:9px 18px;background:#fbfaf8;border-top:1px solid #e3dfd7;font:400 11px 'IBM Plex Sans',sans-serif;color:#8a867d">Descartar pide un motivo por escrito y deja registro.</div>
+          </sc-if>
+        </div>
+
+        <div style="background:#fff;border:1px solid #d9d5cd;border-radius:8px;overflow:hidden">
+          <div style="display:flex;align-items:center;justify-content:space-between;padding:13px 18px;border-bottom:1px solid #e3dfd7">
+            <span style="font:600 13px 'IBM Plex Sans',sans-serif;color:#1c1b18">Movimientos del mes</span>
+            <span style="font:400 11.5px 'IBM Plex Sans',sans-serif;color:#7c786f">Todo lo que ya entró al medidor</span>
+          </div>
+          <sc-if value="{{ sinMovs }}">
+            <div style="padding:44px 20px;display:flex;flex-direction:column;align-items:center;gap:7px">
+              <span style="font:500 13px 'IBM Plex Sans',sans-serif;color:#5c5952">El mes está recién abierto</span>
+              <span style="font:400 12px 'IBM Plex Sans',sans-serif;color:#8a867d;max-width:380px;text-align:center">Aún no entra ningún movimiento al medidor. Registra un pago desde la bandeja o usa la captura suelta.</span>
+            </div>
+          </sc-if>
+          <sc-if value="{{ hayMovs }}">
+          <table style="width:100%;border-collapse:collapse">
+            <thead>
+              <tr style="background:#fbfaf8">
+                <th style="text-align:left;padding:9px 18px;font:500 10.5px 'IBM Plex Mono',monospace;color:#7c786f;letter-spacing:.07em;border-bottom:1px solid #e3dfd7">TIPO</th>
+                <th style="text-align:left;padding:9px 10px;font:500 10.5px 'IBM Plex Mono',monospace;color:#7c786f;letter-spacing:.07em;border-bottom:1px solid #e3dfd7">FECHA</th>
+                <th style="text-align:left;padding:9px 10px;font:500 10.5px 'IBM Plex Mono',monospace;color:#7c786f;letter-spacing:.07em;border-bottom:1px solid #e3dfd7">CLIENTE</th>
+                <th style="text-align:left;padding:9px 10px;font:500 10.5px 'IBM Plex Mono',monospace;color:#7c786f;letter-spacing:.07em;border-bottom:1px solid #e3dfd7">DESCRIPCIÓN</th>
+                <th style="text-align:right;padding:9px 10px;font:500 10.5px 'IBM Plex Mono',monospace;color:#7c786f;letter-spacing:.07em;border-bottom:1px solid #e3dfd7">BRUTO</th>
+                <th style="text-align:right;padding:9px 10px;font:500 10.5px 'IBM Plex Mono',monospace;color:#7c786f;letter-spacing:.07em;border-bottom:1px solid #e3dfd7">SIN IVA</th>
+                <th style="text-align:center;padding:9px 8px;font:500 10.5px 'IBM Plex Mono',monospace;color:#7c786f;letter-spacing:.07em;border-bottom:1px solid #e3dfd7">EDIT.</th>
+                <th style="text-align:right;padding:9px 18px;font:500 10.5px 'IBM Plex Mono',monospace;color:#7c786f;letter-spacing:.07em;border-bottom:1px solid #e3dfd7"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <sc-for list="{{ movs }}" as="m" hint-placeholder-count="6">
+                <tr style="border-bottom:1px solid #f0ede8;background:{{ m.rowBg }}" style-hover="background:#fbfaf8">
+                  <td style="padding:10px 18px;vertical-align:top">
+                    <span style="display:inline-flex;align-items:center;gap:5px;padding:2px 8px;border-radius:4px;font:600 10.5px 'IBM Plex Mono',monospace;letter-spacing:.05em;background:{{ m.tBg }};color:{{ m.tFg }};border:{{ m.tBd }}"><span style="font-size:12px;line-height:1">{{ m.glyph }}</span>{{ m.tipo }}</span>
+                  </td>
+                  <td style="padding:10px;font:400 12px 'IBM Plex Mono',monospace;color:#5c5952;vertical-align:top">{{ m.fecha }}</td>
+                  <td style="padding:10px;font:500 12.5px 'IBM Plex Sans',sans-serif;color:#1c1b18;vertical-align:top">{{ m.cliente }}</td>
+                  <td style="padding:10px;font:400 12.5px 'IBM Plex Sans',sans-serif;color:#5c5952;vertical-align:top">
+                    <span style="display:block;padding-left:{{ m.indent }};border-left:{{ m.tie }}">{{ m.desc }}</span>
+                  </td>
+                  <td style="padding:10px;text-align:right;font:400 12.5px 'IBM Plex Mono',monospace;color:{{ m.mColor }};vertical-align:top">{{ m.bruto }}</td>
+                  <td style="padding:10px;text-align:right;font:600 12.5px 'IBM Plex Mono',monospace;color:{{ m.mColor }};vertical-align:top">{{ m.neto }}</td>
+                  <td style="padding:10px 8px;text-align:center;font:400 11px 'IBM Plex Mono',monospace;color:#a09b91;vertical-align:top">{{ m.edit }}</td>
+                  <td style="padding:10px 18px;text-align:right;vertical-align:top"><span style="font:500 11.5px 'IBM Plex Sans',sans-serif;color:#6d6a63;cursor:pointer">Editar</span></td>
+                </tr>
+              </sc-for>
+            </tbody>
+          </table>
+          </sc-if>
+        </div>
+
+        <div style="background:#fff;border:1px solid #d9d5cd;border-radius:8px;padding:16px 18px">
+          <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:12px">
+            <span style="font:600 13px 'IBM Plex Sans',sans-serif;color:#1c1b18">Captura suelta</span>
+            <span style="font:400 11.5px 'IBM Plex Sans',sans-serif;color:#7c786f">Para lo que no viene de la bandeja</span>
+          </div>
+          <div style="display:flex;gap:6px;margin-bottom:14px">
+            <sc-for list="{{ tipoCaptura }}" as="t" hint-placeholder-count="3">
+              <button type="button" onClick="{{ t.on }}" style="border:1px solid {{ t.bd }};background:{{ t.bg }};color:{{ t.fg }};border-radius:6px;padding:7px 14px;font:500 12px 'IBM Plex Sans',sans-serif;cursor:pointer">{{ t.label }}</button>
+            </sc-for>
+          </div>
+          <div style="display:grid;grid-template-columns:1.3fr 2fr .9fr .8fr;gap:10px;align-items:end">
+            <label style="display:flex;flex-direction:column;gap:5px"><span style="font:500 11px 'IBM Plex Mono',monospace;color:#7c786f;letter-spacing:.05em">CLIENTE</span><input type="text" placeholder="Grupo Fetasa" style="border:1px solid #cdc8bf;border-radius:5px;padding:8px 10px;font:400 13px 'IBM Plex Sans',sans-serif;color:#1c1b18;background:#fff" /></label>
+            <label style="display:flex;flex-direction:column;gap:5px"><span style="font:500 11px 'IBM Plex Mono',monospace;color:#7c786f;letter-spacing:.05em">DESCRIPCIÓN</span><input type="text" placeholder="Lona 3x2 sucursal norte" style="border:1px solid #cdc8bf;border-radius:5px;padding:8px 10px;font:400 13px 'IBM Plex Sans',sans-serif;color:#1c1b18;background:#fff" /></label>
+            <label style="display:flex;flex-direction:column;gap:5px"><span style="font:500 11px 'IBM Plex Mono',monospace;color:#7c786f;letter-spacing:.05em">MONTO</span><input type="text" placeholder="$0.00" style="border:1px solid #cdc8bf;border-radius:5px;padding:8px 10px;font:400 13px 'IBM Plex Mono',monospace;color:#1c1b18;background:#fff;text-align:right" /></label>
+            <label style="display:flex;flex-direction:column;gap:5px"><span style="font:500 11px 'IBM Plex Mono',monospace;color:#7c786f;letter-spacing:.05em">FECHA</span><input type="text" placeholder="18/09/2026" style="border:1px solid #cdc8bf;border-radius:5px;padding:8px 10px;font:400 13px 'IBM Plex Mono',monospace;color:#1c1b18;background:#fff" /></label>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:12px">
+            <label style="display:flex;align-items:center;gap:8px;cursor:pointer"><input type="checkbox" style="width:15px;height:15px;accent-color:#1c1b18" /><span style="font:400 12.5px 'IBM Plex Sans',sans-serif;color:#3b3934">El monto incluye IVA</span></label>
+            <button type="button" style="border:1px solid #1c1b18;background:#1c1b18;color:#fff;border-radius:6px;padding:8px 18px;font:500 12.5px 'IBM Plex Sans',sans-serif;cursor:pointer" style-hover="background:#33312c">Guardar</button>
+          </div>
+          <div style="margin-top:14px;padding:11px 13px;border-radius:6px;background:#f7f5f1;border:1px solid #e3dfd7;display:flex;flex-direction:column;gap:6px">
+            <div style="display:flex;gap:9px"><span style="flex:none;width:52px;font:600 10.5px 'IBM Plex Mono',monospace;color:#8a5a2b;padding-top:1px">MERMA</span><span style="font:400 12px/1.45 'IBM Plex Sans',sans-serif;color:#5c5952">Resta a la meta <strong style="font-weight:600">y</strong> a la bolsa del bono. Es un costo que el equipo pudo evitar.</span></div>
+            <div style="display:flex;gap:9px"><span style="flex:none;width:52px;font:600 10.5px 'IBM Plex Mono',monospace;color:#4a5a7a;padding-top:1px">AJUSTE</span><span style="font:400 12px/1.45 'IBM Plex Sans',sans-serif;color:#5c5952">Dinero devuelto al cliente o corrección administrativa. Resta solo a la meta, <strong style="font-weight:600">sin</strong> castigar la bolsa del bono.</span></div>
+          </div>
+        </div>
+
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:14px">
+
+        <div style="background:#fff;border:1px solid {{ reglasBd }};border-radius:8px;overflow:hidden">
+          <div style="display:flex;align-items:center;justify-content:space-between;padding:13px 16px;border-bottom:1px solid #e3dfd7;background:{{ reglasHeadBg }}">
+            <div style="display:flex;align-items:center;gap:9px">
+              <span style="font:600 13px 'IBM Plex Sans',sans-serif;color:#1c1b18">Reglas del mes</span>
+              <span style="display:inline-flex;align-items:center;gap:5px;padding:2px 8px;border-radius:4px;font:600 10.5px 'IBM Plex Mono',monospace;background:{{ lockBg }};color:{{ lockFg }};border:1px solid {{ lockBd }}">{{ lockGlyph }} {{ lockTxt }}</span>
+            </div>
+            <button type="button" onClick="{{ toggleRules }}" style="border:none;background:none;color:#6d6a63;font:500 11.5px 'IBM Plex Sans',sans-serif;cursor:pointer">{{ rulesToggleTxt }}</button>
+          </div>
+          <sc-if value="{{ rulesOpen }}" hint-placeholder-val="{{ true }}">
+          <div style="padding:14px 16px;display:flex;flex-direction:column;gap:10px">
+            <sc-for list="{{ reglas }}" as="g" hint-placeholder-count="5">
+              <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding-bottom:9px;border-bottom:1px solid #f0ede8">
+                <div style="display:flex;flex-direction:column;gap:1px">
+                  <span style="font:500 12.5px 'IBM Plex Sans',sans-serif;color:#1c1b18">{{ g.k }}</span>
+                  <span style="font:400 11px 'IBM Plex Sans',sans-serif;color:#8a867d">{{ g.sub }}</span>
+                </div>
+                <span style="flex:none;padding:6px 11px;border-radius:5px;border:1px solid {{ g.inBd }};background:{{ g.inBg }};font:600 12.5px 'IBM Plex Mono',monospace;color:{{ g.inFg }};min-width:96px;text-align:right">{{ g.v }}</span>
+              </div>
+            </sc-for>
+            <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px;padding:11px 12px;border-radius:6px;background:#f7f5f1;border:1px solid #e3dfd7">
+              <div style="display:flex;flex-direction:column;gap:2px">
+                <span style="font:500 12.5px 'IBM Plex Sans',sans-serif;color:#1c1b18">Liberar bono por decisión de dirección</span>
+                <span style="font:400 11px/1.4 'IBM Plex Sans',sans-serif;color:#8a867d">Requiere nota escrita; se muestra al equipo.</span>
+              </div>
+              <div style="flex:none;width:38px;height:21px;border-radius:11px;background:{{ swBg }};border:1px solid {{ swBd }};position:relative;cursor:pointer" onClick="{{ toggleLibre }}">
+                <div style="position:absolute;top:2px;left:{{ swX }};width:15px;height:15px;border-radius:50%;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.25);transition:left .18s ease"></div>
+              </div>
+            </div>
+            <div style="display:flex;justify-content:flex-end;gap:8px;padding-top:2px">
+              <button type="button" onClick="{{ toggleLock }}" style="border:1px solid #cdc8bf;background:#fff;color:#3b3934;border-radius:6px;padding:7px 13px;font:500 12px 'IBM Plex Sans',sans-serif;cursor:pointer" style-hover="background:#f5f3ef">{{ lockAction }}</button>
+            </div>
+            <p style="margin:0;font:400 11px/1.45 'IBM Plex Sans',sans-serif;color:#8a867d">{{ lockNota }}</p>
+          </div>
+          </sc-if>
+        </div>
+
+        <div style="background:#fff;border:1px solid #d9d5cd;border-radius:8px;padding:15px 16px">
+          <span style="font:600 13px 'IBM Plex Sans',sans-serif;color:#1c1b18">Desglose de la bolsa</span>
+          <p style="margin:3px 0 12px;font:400 11px 'IBM Plex Sans',sans-serif;color:#8a867d">Paso a paso, para explicarlo señalando la pantalla.</p>
+          <div style="display:flex;flex-direction:column">
+            <sc-for list="{{ desglose }}" as="d" hint-placeholder-count="6">
+              <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;padding:8px 0;border-bottom:1px solid #f0ede8">
+                <div style="display:flex;align-items:baseline;gap:8px">
+                  <span style="width:16px;font:500 11px 'IBM Plex Mono',monospace;color:#b4afa5">{{ d.n }}</span>
+                  <div style="display:flex;flex-direction:column">
+                    <span style="font:{{ d.kw }} 12.5px 'IBM Plex Sans',sans-serif;color:#1c1b18">{{ d.k }}</span>
+                    <span style="font:400 10.5px 'IBM Plex Sans',sans-serif;color:#a09b91">{{ d.sub }}</span>
+                  </div>
+                </div>
+                <span style="font:{{ d.vw }} 13px 'IBM Plex Mono',monospace;color:{{ d.c }};white-space:nowrap">{{ d.v }}</span>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+
+        <div style="background:#fff;border:1px solid #d9d5cd;border-radius:8px;padding:15px 16px">
+          <span style="font:600 13px 'IBM Plex Sans',sans-serif;color:#1c1b18">Cierre de mes</span>
+          <p style="margin:3px 0 11px;font:400 11.5px/1.45 'IBM Plex Sans',sans-serif;color:#7c786f">Congela y archiva los movimientos del mes. La bandeja de pendientes no se vacía: sigue viva con sus saldos hacia el mes siguiente.</p>
+          <button type="button" style="width:100%;border:1px solid #1c1b18;background:#fff;color:#1c1b18;border-radius:6px;padding:9px 14px;font:500 12.5px 'IBM Plex Sans',sans-serif;cursor:pointer" style-hover="background:#f5f3ef">Cerrar {{ mesCorto }}</button>
+          <div style="margin-top:14px;display:flex;flex-direction:column;gap:0">
+            <span style="font:500 10.5px 'IBM Plex Mono',monospace;color:#7c786f;letter-spacing:.07em;margin-bottom:6px">MESES CERRADOS</span>
+            <sc-for list="{{ historial }}" as="h" hint-placeholder-count="3">
+              <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;padding:8px 0;border-top:1px solid #f0ede8">
+                <span style="font:500 12.5px 'IBM Plex Sans',sans-serif;color:#1c1b18;width:78px">{{ h.mes }}</span>
+                <span style="font:400 11.5px 'IBM Plex Mono',monospace;color:#7c786f">{{ h.meta }}</span>
+                <span style="font:600 12px 'IBM Plex Mono',monospace;color:{{ h.c }}">{{ h.av }}</span>
+                <span style="font:400 11.5px 'IBM Plex Mono',monospace;color:#3b3934;width:86px;text-align:right">{{ h.bono }}</span>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+
+        <div style="border:1px dashed #c9c4ba;border-radius:8px;padding:18px 16px;background:rgba(255,255,255,.4);min-height:96px;display:flex;flex-direction:column;gap:4px;justify-content:center">
+          <span style="font:500 11px 'IBM Plex Mono',monospace;color:#9a958b;letter-spacing:.07em">ESPACIO RESERVADO</span>
+          <span style="font:400 12px/1.45 'IBM Plex Sans',sans-serif;color:#9a958b">Control de quién registra las mermas. Pendiente de definir; el layout deja el hueco.</span>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <sc-if value="{{ modalOpen }}">
+    <div style="position:fixed;inset:0;z-index:80;background:rgba(28,27,24,.42);display:flex;align-items:flex-start;justify-content:center;padding:40px 20px;overflow-y:auto">
+      <div style="width:620px;background:#fff;border:1px solid #cdc8bf;border-radius:10px;box-shadow:0 24px 70px rgba(0,0,0,.28);overflow:hidden">
+
+        <div style="padding:16px 20px;border-bottom:1px solid #e3dfd7;background:#f7f5f1">
+          <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:14px">
+            <div style="display:flex;flex-direction:column;gap:2px">
+              <span style="font:600 14px 'IBM Plex Sans',sans-serif;color:#1c1b18">Registrar pago</span>
+              <span style="font:400 12.5px 'IBM Plex Sans',sans-serif;color:#5c5952">{{ mw.cliente }} · {{ mw.desc }}</span>
+            </div>
+            <button type="button" onClick="{{ closeModal }}" style="border:none;background:none;font:400 18px 'IBM Plex Sans',sans-serif;color:#8a867d;cursor:pointer;line-height:1">×</button>
+          </div>
+          <div style="display:flex;gap:24px;margin-top:11px">
+            <div style="display:flex;flex-direction:column;gap:1px"><span style="font:500 10.5px 'IBM Plex Mono',monospace;color:#7c786f;letter-spacing:.06em">MONTO TOTAL</span><span style="font:600 15px 'IBM Plex Mono',monospace;color:#1c1b18">{{ mw.total }}</span></div>
+            <div style="display:flex;flex-direction:column;gap:1px"><span style="font:500 10.5px 'IBM Plex Mono',monospace;color:#7c786f;letter-spacing:.06em">ABONADO</span><span style="font:600 15px 'IBM Plex Mono',monospace;color:#4d7c3f">{{ mw.abonado }}</span></div>
+            <div style="display:flex;flex-direction:column;gap:1px"><span style="font:500 10.5px 'IBM Plex Mono',monospace;color:#7c786f;letter-spacing:.06em">SALDO ACTUAL</span><span style="font:600 15px 'IBM Plex Mono',monospace;color:#1c1b18">{{ mw.saldo }}</span></div>
+          </div>
+        </div>
+
+        <div style="padding:18px 20px;display:flex;flex-direction:column;gap:16px">
+
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:14px;padding:12px 14px;border-radius:7px;border:1px solid {{ mw.swBdBox }};background:{{ mw.swBoxBg }}">
+            <div style="display:flex;flex-direction:column;gap:2px">
+              <span style="font:600 13px 'IBM Plex Sans',sans-serif;color:#1c1b18">¿El cliente abonó una parte?</span>
+              <span style="font:400 11.5px 'IBM Plex Sans',sans-serif;color:#7c786f">{{ mw.swSub }}</span>
+            </div>
+            <div style="flex:none;width:44px;height:24px;border-radius:12px;background:{{ mw.swBg }};border:1px solid {{ mw.swBd }};position:relative;cursor:pointer" onClick="{{ toggleAbono }}">
+              <div style="position:absolute;top:2px;left:{{ mw.swX }};width:18px;height:18px;border-radius:50%;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.25);transition:left .18s ease"></div>
+            </div>
+          </div>
+
+          <div style="display:flex;gap:14px;align-items:flex-end">
+            <label style="flex:1;display:flex;flex-direction:column;gap:5px">
+              <span style="font:500 11px 'IBM Plex Mono',monospace;color:#7c786f;letter-spacing:.05em">{{ mw.montoLabel }}</span>
+              <input type="text" value="{{ mw.montoVal }}" onChange="{{ onMonto }}" style="border:1px solid #9c968c;border-radius:6px;padding:11px 12px;font:600 18px 'IBM Plex Mono',monospace;color:#1c1b18;background:#fff;text-align:right" />
+            </label>
+            <label style="flex:none;display:flex;align-items:center;gap:8px;padding-bottom:12px;cursor:pointer"><input type="checkbox" checked="{{ mw.iva }}" onChange="{{ toggleIva }}" style="width:15px;height:15px;accent-color:#1c1b18" /><span style="font:400 12.5px 'IBM Plex Sans',sans-serif;color:#3b3934">El monto incluye IVA</span></label>
+          </div>
+          <div style="margin-top:-8px;font:400 11.5px 'IBM Plex Mono',monospace;color:#7c786f">{{ mw.ivaLinea }}</div>
+
+          <sc-if value="{{ mw.esAbono }}">
+            <div style="padding:13px 15px;border-radius:7px;background:#f2f5f0;border:1px solid #d3ddcd;display:grid;grid-template-columns:repeat(3,1fr);gap:12px">
+              <div style="display:flex;flex-direction:column;gap:2px"><span style="font:500 10.5px 'IBM Plex Mono',monospace;color:#5e6b58;letter-spacing:.06em">ESTE ABONO ES</span><span style="font:600 21px 'IBM Plex Mono',monospace;color:#3f6633">{{ mw.abonoPct }}</span><span style="font:400 10.5px 'IBM Plex Sans',sans-serif;color:#6b7565">del trabajo</span></div>
+              <div style="display:flex;flex-direction:column;gap:2px"><span style="font:500 10.5px 'IBM Plex Mono',monospace;color:#5e6b58;letter-spacing:.06em">QUEDA DE SALDO</span><span style="font:600 21px 'IBM Plex Mono',monospace;color:#1c1b18">{{ mw.saldoNuevo }}</span><span style="font:400 10.5px 'IBM Plex Sans',sans-serif;color:#6b7565">sigue en la bandeja</span></div>
+              <div style="display:flex;flex-direction:column;gap:2px"><span style="font:500 10.5px 'IBM Plex Mono',monospace;color:#5e6b58;letter-spacing:.06em">PAGADO TOTAL</span><span style="font:600 21px 'IBM Plex Mono',monospace;color:#3f6633">{{ mw.pagadoTotal }}</span>
+                <div style="height:4px;border-radius:2px;background:#dfe6db;overflow:hidden;margin-top:3px"><div style="height:100%;border-radius:2px;width:{{ mw.pagadoW }};background:#4d7c3f"></div></div>
+              </div>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ mw.esLiq }}">
+            <sc-if value="{{ mw.hayDif }}">
+              <div style="padding:11px 14px;border-radius:7px;background:#fdf6ec;border:1px solid #e8d6b4;display:flex;align-items:center;justify-content:space-between;gap:12px">
+                <span style="font:400 12px 'IBM Plex Sans',sans-serif;color:#7a5c25">El monto capturado difiere del saldo esperado ({{ mw.saldo }}).</span>
+                <span style="font:600 13px 'IBM Plex Mono',monospace;color:#8a5a2b">{{ mw.dif }}</span>
+              </div>
+            </sc-if>
+            <div style="border:1px solid #e3dfd7;border-radius:7px;overflow:hidden">
+              <div style="padding:11px 14px;background:#faf8f5;border-bottom:1px solid #e3dfd7;display:flex;align-items:center;justify-content:space-between">
+                <span style="font:600 12.5px 'IBM Plex Sans',sans-serif;color:#1c1b18">¿Hubo merma en este trabajo?</span>
+                <span style="font:400 11px 'IBM Plex Sans',sans-serif;color:#8a867d">Solo al liquidar: es cuando el trabajo se cierra.</span>
+              </div>
+              <div style="padding:13px 14px;display:grid;grid-template-columns:2fr 1fr;gap:10px">
+                <label style="display:flex;flex-direction:column;gap:5px"><span style="font:500 11px 'IBM Plex Mono',monospace;color:#7c786f;letter-spacing:.05em">DESCRIPCIÓN DE LA MERMA</span><input type="text" placeholder="Vuelta extra a instalación por falta de herraje" style="border:1px solid #cdc8bf;border-radius:5px;padding:8px 10px;font:400 12.5px 'IBM Plex Sans',sans-serif;color:#1c1b18;background:#fff" /></label>
+                <label style="display:flex;flex-direction:column;gap:5px"><span style="font:500 11px 'IBM Plex Mono',monospace;color:#7c786f;letter-spacing:.05em">MONTO</span><input type="text" value="$2,400.00" style="border:1px solid #cdc8bf;border-radius:5px;padding:8px 10px;font:400 12.5px 'IBM Plex Mono',monospace;color:#1c1b18;background:#fff;text-align:right" /></label>
+              </div>
+            </div>
+          </sc-if>
+
+          <label style="display:flex;align-items:flex-start;gap:11px;padding:13px 15px;border-radius:7px;border:1px solid #b9b3a7;background:#faf8f5;cursor:pointer">
+            <input type="checkbox" checked="{{ mw.dep }}" onChange="{{ toggleDep }}" style="width:17px;height:17px;margin-top:1px;accent-color:#1c1b18" />
+            <div style="display:flex;flex-direction:column;gap:2px">
+              <span style="font:600 13px 'IBM Plex Sans',sans-serif;color:#1c1b18">El pago ya está depositado en la cuenta</span>
+              <span style="font:400 11.5px/1.45 'IBM Plex Sans',sans-serif;color:#7c786f">Obligatorio. Nada entra a la meta sobre promesas de pago.</span>
+            </div>
+          </label>
+
+          <div style="padding:14px 16px;border-radius:7px;background:#1c1b18">
+            <span style="font:500 10.5px 'IBM Plex Mono',monospace;color:#a8a49a;letter-spacing:.07em">RESUMEN ANTES DE CONFIRMAR</span>
+            <div style="display:flex;flex-direction:column;gap:7px;margin-top:10px">
+              <sc-for list="{{ mw.resumen }}" as="r" hint-placeholder-count="3">
+                <div style="display:flex;align-items:baseline;justify-content:space-between;gap:12px">
+                  <span style="font:400 12.5px 'IBM Plex Sans',sans-serif;color:#c9c5bb">{{ r.k }}</span>
+                  <span style="font:600 13px 'IBM Plex Mono',monospace;color:{{ r.c }}">{{ r.v }}</span>
+                </div>
+              </sc-for>
+            </div>
+            <div style="margin-top:11px;padding-top:11px;border-top:1px solid #35332e;display:flex;align-items:center;justify-content:space-between">
+              <span style="font:500 12.5px 'IBM Plex Sans',sans-serif;color:#fff">Avance del mes después de la operación</span>
+              <span style="font:600 20px 'IBM Plex Mono',monospace;color:#8fd47a">{{ mw.avanceFinal }}</span>
+            </div>
+          </div>
+
+          <div style="padding:10px 14px;border-radius:7px;border:1px dashed {{ mw.destBd }};background:{{ mw.destBg }};display:flex;align-items:center;gap:9px">
+            <span style="font:600 10.5px 'IBM Plex Mono',monospace;color:{{ mw.destFg }};letter-spacing:.06em">{{ mw.destTag }}</span>
+            <span style="font:400 12px 'IBM Plex Sans',sans-serif;color:#5c5952">{{ mw.destTxt }}</span>
+          </div>
+
+        </div>
+
+        <div style="padding:14px 20px;border-top:1px solid #e3dfd7;background:#f7f5f1;display:flex;justify-content:flex-end;gap:9px">
+          <button type="button" onClick="{{ closeModal }}" style="border:1px solid #cdc8bf;background:#fff;color:#3b3934;border-radius:6px;padding:9px 16px;font:500 12.5px 'IBM Plex Sans',sans-serif;cursor:pointer" style-hover="background:#f0ede8">Cancelar</button>
+          <button type="button" style="border:1px solid {{ mw.cta.bd }};background:{{ mw.cta.bg }};color:{{ mw.cta.fg }};border-radius:6px;padding:9px 18px;font:600 12.5px 'IBM Plex Sans',sans-serif;cursor:{{ mw.cta.cur }}">{{ mw.cta.txt }}</button>
+        </div>
+
+      </div>
+    </div>
+  </sc-if>
+
+</div>
+</sc-if>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1600,&quot;height&quot;:1000}}">
+class Component extends DCLogic {
+  state = {
+    screen: 'colab', pct: 78, displayPct: 78,
+    adminState: 'normal', locked: true, rulesOpen: true, libre: false,
+    modal: null, esAbono: false, monto: 88800, iva: true, dep: true, captura: 'Pendiente nuevo'
+  };
+
+  componentDidMount(){ this.animate(this.state.pct); }
+
+  animate(to){
+    if (this._raf) cancelAnimationFrame(this._raf);
+    const from = this.state.displayPct, t0 = performance.now(), d = 900;
+    const tick = (t) => {
+      const k = Math.min(1, (t - t0) / d), e = 1 - Math.pow(1 - k, 3);
+      this.setState({ displayPct: Math.round(from + (to - from) * e) });
+      if (k < 1) this._raf = requestAnimationFrame(tick);
+    };
+    this._raf = requestAnimationFrame(tick);
+  }
+
+  fmt(n){ return '$' + Math.abs(n).toLocaleString('es-MX',{minimumFractionDigits:2,maximumFractionDigits:2}); }
+
+  buildSteps(scale, isM){
+    const p = this.state.pct / 100;
+    const w = isM ? 56 : 86, topH = isM ? 12 : 15;
+    const hs = isM ? [58,100,142,184] : [82,142,202,262];
+    const defs = [
+      { bg:'linear-gradient(180deg,#38bdf8,#1d4ed8)', glow:'#38bdf8', lbl:'25%' },
+      { bg:'linear-gradient(180deg,#4ade80,#15803d)', glow:'#4ade80', lbl:'50%' },
+      { bg:'linear-gradient(180deg,#fbbf24,#b45309)', glow:'#fbbf24', lbl:'75%' },
+      { bg:'linear-gradient(180deg,#fb7185,#f97316)', glow:'#fb923c', lbl:'100%' }
+    ];
+    const out = defs.map((d,i) => {
+      const f = Math.max(0, Math.min(1, (p - i*0.25) / 0.25));
+      const bodyH = hs[i] - topH, fh = Math.round(bodyH * f);
+      const lit = f > 0;
+      const salvaOn = p >= 0.75;
+      return {
+        w: w+'px', h: hs[i]+'px', top: topH+'px', tx: '0px', z: 10-i,
+        topBg: f >= 1 ? d.bg : 'rgba(255,255,255,.035)',
+        topBd: f >= 1 ? 'rgba(255,255,255,.45)' : 'rgba(255,255,255,.13)',
+        faceBd: f >= 1 ? 'rgba(255,255,255,.28)' : 'rgba(255,255,255,.10)',
+        bg: d.bg, fh: fh+'px',
+        glow: lit ? '0 -1px 0 0 rgba(255,255,255,.55), 0 -6px 22px -2px ' + d.glow : 'none',
+        lbl: d.lbl, lblC: lit ? '#9aa0aa' : '#4a4a54',
+        isSalva: i === 2,
+        salvaBg: salvaOn ? '#facc15' : 'transparent',
+        salvaBd: salvaOn ? '#fde68a' : 'rgba(255,255,255,.22)',
+        salvaGlow: salvaOn ? '0 0 14px 3px rgba(250,204,21,.65)' : 'none',
+        salvaTxt: salvaOn ? '#facc15' : '#4a4a54',
+        isFlag: i === 3,
+        poleBottom: (hs[i] - topH) + 'px',
+        poleH: (isM ? 74 : 100) + 'px',
+        poleBg: p >= 1 ? 'linear-gradient(180deg,#fde68a,#b45309)' : 'linear-gradient(180deg,#4a4a55,#2e2e37)',
+        poleGlow: p >= 1 ? '0 0 16px 2px rgba(250,204,21,.45)' : 'none',
+        flagNode: i === 3 ? this.flagNode(isM, p >= 1) : null
+      };
+    });
+    if (p > 1){
+      const extra = Math.max(0, Math.min(1, (p - 1) / 0.25));
+      const h5 = isM ? 290 : 400, body5 = h5 - topH;
+      out.push({
+        w: w+'px', h: h5+'px', top: topH+'px', tx: '0px', z: 20,
+        topBg: extra >= 1 ? 'linear-gradient(180deg,#ff3d9a,#f43f5e)' : 'rgba(255,255,255,.035)',
+        topBd: 'rgba(255,255,255,.5)', faceBd: 'rgba(255,255,255,.3)',
+        bg: 'linear-gradient(180deg,#ff2d9b,#f43f5e 55%,#f97316)',
+        fh: Math.round(body5*extra)+'px',
+        glow: '0 -1px 0 0 rgba(255,255,255,.6), 0 -10px 30px -2px #ff2d9b',
+        lbl: '125%', lblC: '#ff8ac4', isSalva: false, isFlag: false, flagNode: null,
+        salvaBg:'transparent', salvaBd:'transparent', salvaGlow:'none', salvaTxt:'transparent'
+      });
+    }
+    return out;
+  }
+
+  flagNode(isM, won){
+    return won
+      ? React.createElement('svg', { key:'w', width: isM?76:104, height: isM?44:58, viewBox:'0 0 120 70',
+          style:{ position:'absolute', left: isM?2:3, top: 2, overflow:'visible',
+                  filter:'drop-shadow(0 0 14px rgba(250,204,21,.55))' } },
+          React.createElement('defs', null,
+            React.createElement('linearGradient', { id:'fg', x1:'0', y1:'0', x2:'1', y2:'1' },
+              React.createElement('stop', { offset:'0%', stopColor:'#fef3c7' }),
+              React.createElement('stop', { offset:'55%', stopColor:'#facc15' }),
+              React.createElement('stop', { offset:'100%', stopColor:'#d97706' }))),
+          React.createElement('path', { fill:'url(#fg)',
+            d:'M0,2 C28,12 58,-6 116,6 L116,44 C58,56 28,38 0,48 Z',
+            style:{ animation:'wv 1.8s ease-in-out infinite' } }))
+      : React.createElement('div', { key:'d',
+          style:{ position:'absolute', left: isM?2:3, top: 3, width: isM?19:24, height: isM?44:56,
+                  background:'linear-gradient(160deg,#4c4c57,#2b2b34)',
+                  borderLeft:'1px solid rgba(255,255,255,.16)',
+                  clipPath:'polygon(0 0, 100% 14%, 58% 70%, 84% 100%, 0 92%)',
+                  transformOrigin:'top left', animation:'swy 5s ease-in-out infinite', opacity:.9 } });
+  }
+
+  tramo(){
+    const p = this.state.pct;
+    if (p >= 100) return ['¡Meta cumplida!', p > 100 ? 'META REBASADA' : 'META CUMPLIDA'];
+    if (p >= 90) return ['Falta poquito, ya casi', 'TRAMO FINAL'];
+    if (p >= 75) return ['Ya está el salvavidas asegurado', 'SALVAVIDAS ASEGURADO'];
+    if (p >= 41) return ['Buen ritmo, sigan así', 'EN MARCHA'];
+    return ['Vamos arrancando', 'ARRANQUE'];
+  }
+
+  adminData(){
+    const s = this.state.adminState;
+    const nuevo = s === 'nuevo';
+    const meta = 850000;
+    const bruto = nuevo ? 0 : 663000;
+    const merm = nuevo ? 0 : 9800;
+    const neto = bruto - merm;
+    const real = meta ? (neto/meta*100) : 0;
+    const sin = meta ? (bruto/meta*100) : 0;
+    const bolsa = bruto * 0.03;
+    const tope = bolsa * 0.5;
+    const resta = Math.min(merm, tope);
+    return { nuevo, meta, bruto, merm, neto, real, sin, bolsa, tope, resta, final: bolsa - resta };
+  }
+
+  renderVals(){
+    const st = this.state, S = (o) => this.setState(o);
+    const isColab = st.screen === 'colab';
+    const [copy, tag] = this.tramo();
+    const p = st.pct;
+
+    const chipDefs = isColab
+      ? [0,45,78,100,115].map(v => ({ label: v + '%', on: () => { S({ pct: v }); this.animate(v); clearTimeout(this._fb); this._fb = setTimeout(() => this.setState({ displayPct: v }), 1100); }, act: st.pct === v }))
+      : [
+          { label:'OPERACIÓN NORMAL', on:()=>S({adminState:'normal', modal:null}), act: st.adminState==='normal' },
+          { label:'MES RECIÉN ABIERTO', on:()=>S({adminState:'nuevo', modal:null}), act: st.adminState==='nuevo' },
+          { label:'BANDEJA VACÍA', on:()=>S({adminState:'vacia', modal:null}), act: st.adminState==='vacia' },
+          { label: st.locked ? 'REGLAS BLOQUEADAS' : 'REGLAS EDITABLES', on:()=>S({locked:!st.locked}), act: st.locked },
+          { label:'MODAL: ABONO', on:()=>S({modal:'x', esAbono:true, monto:40000}), act: st.modal && st.esAbono },
+          { label:'MODAL: LIQUIDACIÓN', on:()=>S({modal:'x', esAbono:false, monto:88800}), act: st.modal && !st.esAbono }
+        ];
+    const stateChips = chipDefs.map(c => ({
+      label: c.label, on: c.on,
+      bg: c.act ? '#f4f4f5' : 'transparent',
+      fg: c.act ? '#18181b' : '#8b8b96',
+      bd: c.act ? '#f4f4f5' : '#33333d'
+    }));
+
+    const suman = [
+      { cliente:'Grupo Fetasa', desc:'Lona 3x2 sucursal norte', fecha:'03 sep' },
+      { cliente:'Autos del Bajío', desc:'Rotulación flotilla 6 unidades · abono', fecha:'05 sep' },
+      { cliente:'Farmacias Sanmar', desc:'Anuncio luminoso fachada principal', fecha:'09 sep' },
+      { cliente:'Constructora Ébano', desc:'Espectacular carretera 45 km 12', fecha:'12 sep' },
+      { cliente:'Hotel Miravalle', desc:'Vinil de corte en recepción', fecha:'16 sep' }
+    ];
+    const esperaRaw = [
+      { cliente:'Grupo Fetasa', desc:'Fachada sucursal Aguascalientes', dias:18, pct:40 },
+      { cliente:'Autos del Bajío', desc:'Rotulación flotilla 6 unidades', dias:9, pct:30 },
+      { cliente:'Distribuidora Kalos', desc:'Lona doble vista Blvd. Hidalgo', dias:32, pct:0 },
+      { cliente:'Colegio Simón Bolívar', desc:'Anuncio luminoso en fachada', dias:5, pct:45 }
+    ];
+    const espera = esperaRaw.map(t => ({ ...t, espera: 'hace ' + t.dias + ' días', pw: t.pct + '%', pl: t.pct + '% pagado' }));
+    const mermas = [
+      { cliente:'Ferretería del Valle', desc:'Reimpresión por medida equivocada' },
+      { cliente:'Hotel Miravalle', desc:'Vuelta extra a instalación por falta de herraje' },
+      { cliente:'Grupo Fetasa', desc:'Cambio de herraje por corrosión detectada en sitio' }
+    ];
+
+    // ---- admin ----
+    const A = this.adminData();
+    const f = (n) => this.fmt(n);
+    const cards = [
+      { k:'META DEL MES', v: f(A.meta), sub:'Fijada al abrir el mes', color:'#1c1b18' },
+      { k:'COBRADO BRUTO SIN IVA', v: f(A.bruto), sub: A.nuevo ? 'Sin movimientos' : '9 movimientos', color:'#1c1b18' },
+      { k:'MERMAS DEL MES', v: '−' + f(A.merm), sub: A.nuevo ? 'Ninguna' : '3 registradas', color:'#8a5a2b' },
+      { k:'NETO QUE CUENTA', v: f(A.neto), sub:'Cobrado menos mermas', color:'#1c1b18' },
+      { k:'FALTA PARA LA META', v: f(Math.max(0, A.meta - A.neto)), sub:'11 días restantes', color:'#1c1b18' }
+    ];
+
+    const bandejaRows = [
+      { cliente:'Grupo Fetasa', desc:'Fachada sucursal Aguascalientes', total:148000, abonado:59200, dias:18, fecha:'14/08/2026' },
+      { cliente:'Autos del Bajío', desc:'Rotulación flotilla 6 unidades', total:96000, abonado:28800, dias:9, fecha:'23/08/2026' },
+      { cliente:'Distribuidora Kalos', desc:'Lona doble vista Blvd. Hidalgo', total:22000, abonado:0, dias:32, fecha:'31/07/2026' },
+      { cliente:'Colegio Simón Bolívar', desc:'Anuncio luminoso en fachada', total:64500, abonado:29025, dias:5, fecha:'27/08/2026' }
+    ];
+    const bandeja = bandejaRows.map((r,i) => {
+      const pct = Math.round(r.abonado / r.total * 100);
+      const old = r.dias >= 30, mid = r.dias >= 15;
+      return {
+        cliente:r.cliente, desc:r.desc, total:f(r.total), abonado:f(r.abonado), saldo:f(r.total-r.abonado),
+        pw: pct + '%', pl: pct + '%', fecha: r.fecha, dias: r.dias + ' días',
+        diasBg: old ? '#f6eee2' : (mid ? '#f7f5f1' : 'transparent'),
+        diasFg: old ? '#8a5a2b' : (mid ? '#5c5952' : '#8a867d'),
+        diasBd: old ? '#e3d3b8' : (mid ? '#e3dfd7' : 'transparent'),
+        pay: () => S({ modal:'x', esAbono: i !== 0 ? false : false, monto: r.total - r.abonado })
+      };
+    });
+    const bandejaVacia = st.adminState === 'vacia';
+    const totalEspera = bandejaRows.reduce((a,r) => a + r.total - r.abonado, 0);
+
+    const movDefs = [
+      { tipo:'COBRO', glyph:'●', fecha:'03/09', cliente:'Grupo Fetasa', desc:'Lona 3x2 sucursal norte', bruto:53360, neto:46000, edit:'' },
+      { tipo:'ABONO', glyph:'◐', fecha:'05/09', cliente:'Autos del Bajío', desc:'Rotulación flotilla 6 unidades · abono 1 de 3', bruto:33408, neto:28800, edit:'', tie:true },
+      { tipo:'COBRO', glyph:'●', fecha:'09/09', cliente:'Farmacias Sanmar', desc:'Anuncio luminoso fachada principal', bruto:214600, neto:185000, edit:'sí' },
+      { tipo:'MERMA', glyph:'▲', fecha:'11/09', cliente:'Ferretería del Valle', desc:'Reimpresión por medida equivocada', bruto:-5800, neto:-5000, edit:'' },
+      { tipo:'COBRO', glyph:'●', fecha:'12/09', cliente:'Constructora Ébano', desc:'Espectacular carretera 45 km 12', bruto:296800, neto:256000, edit:'' },
+      { tipo:'AJUSTE', glyph:'◇', fecha:'14/09', cliente:'Distribuidora Kalos', desc:'Devolución por cancelación parcial', bruto:-9280, neto:-8000, edit:'' },
+      { tipo:'ABONO', glyph:'◐', fecha:'16/09', cliente:'Autos del Bajío', desc:'Rotulación flotilla 6 unidades · abono 2 de 3', bruto:18560, neto:16000, edit:'', tie:true },
+      { tipo:'MERMA', glyph:'▲', fecha:'18/09', cliente:'Hotel Miravalle', desc:'Vuelta extra a instalación por falta de herraje', bruto:-2784, neto:-2400, edit:'sí' }
+    ];
+    const tStyle = {
+      COBRO: { tBg:'#eef3ec', tFg:'#3f6633', tBd:'1px solid #cfdcc9' },
+      ABONO: { tBg:'#eef1f6', tFg:'#3d5580', tBd:'1px dashed #c6cfdd' },
+      MERMA: { tBg:'#f7efe4', tFg:'#8a5a2b', tBd:'1px solid #e3d3b8' },
+      AJUSTE:{ tBg:'#f3f1ee', tFg:'#5c5952', tBd:'1px dotted #c4beb4' }
+    };
+    const movs = movDefs.map(m => ({
+      ...m, ...tStyle[m.tipo],
+      bruto: (m.bruto < 0 ? '−' : '') + f(m.bruto),
+      neto: (m.neto < 0 ? '−' : '') + f(m.neto),
+      mColor: m.neto < 0 ? '#8a5a2b' : '#1c1b18',
+      rowBg: m.tipo === 'ABONO' ? '#fcfcfa' : '#fff',
+      indent: m.tie ? '9px' : '0',
+      tie: m.tie ? '2px solid #c6cfdd' : 'none',
+      edit: m.edit ? '✎' : '·'
+    }));
+
+    const reglas = [
+      { k:'Monto de la meta del mes', sub:'Se fija al abrir el mes', v: f(A.meta) },
+      { k:'Porcentaje destinado al bono', sub:'Sobre el cobrado sin IVA', v:'3.0%' },
+      { k:'Tramo salvavidas', sub:'75% de meta libera 50% del bono', v:'75% / 50%' },
+      { k:'Tope de mermas sobre la bolsa', sub:'Máximo que pueden restar', v:'50%' },
+      { k:'Monto mínimo de merma', sub:'Debajo se registra pero no descuenta', v: f(500) }
+    ].map(g => ({ ...g,
+      inBg: st.locked ? '#f4f2ee' : '#fff',
+      inBd: st.locked ? '#e3dfd7' : '#9c968c',
+      inFg: st.locked ? '#6d6a63' : '#1c1b18'
+    }));
+
+    const desglose = [
+      { n:'1', k:'Cobrado bruto (con IVA)', sub:'Suma de cobros y abonos del mes', v: f(A.bruto*1.16), c:'#1c1b18', kw:'400', vw:'400' },
+      { n:'2', k:'Menos IVA 16%', sub:'', v:'−' + f(A.bruto*0.16), c:'#8a867d', kw:'400', vw:'400' },
+      { n:'3', k:'Base para el bono', sub:'Cobrado sin IVA', v: f(A.bruto), c:'#1c1b18', kw:'500', vw:'600' },
+      { n:'4', k:'Por el 3% del bono', sub:'Porcentaje de las reglas del mes', v: f(A.bolsa), c:'#1c1b18', kw:'400', vw:'600' },
+      { n:'5', k:'Menos mermas', sub:'Tope aplicado: máx. ' + f(A.tope), v:'−' + f(A.resta), c:'#8a5a2b', kw:'400', vw:'600' },
+      { n:'6', k:'Bolsa final a repartir', sub:'Entre el equipo', v: f(A.final), c:'#1c1b18', kw:'600', vw:'600' }
+    ];
+
+    const historial = [
+      { mes:'Agosto 2026', meta: f(820000), av:'104%', bono: f(25584), c:'#3f6633' },
+      { mes:'Julio 2026', meta: f(800000), av:'88%', bono: f(11220), c:'#5c5952' },
+      { mes:'Junio 2026', meta: f(800000), av:'72%', bono: f(0), c:'#8a5a2b' }
+    ];
+
+    // ---- modal ----
+    const trab = { cliente:'Grupo Fetasa', desc:'Fachada sucursal Aguascalientes', total:148000, abonado:59200 };
+    const saldo = trab.total - trab.abonado;
+    const monto = st.monto || 0;
+    const sinIva = st.iva ? monto / 1.16 : monto;
+    const abonoPct = Math.round(monto / trab.total * 100);
+    const pagadoTot = Math.min(100, Math.round((trab.abonado + monto) / trab.total * 100));
+    const dif = monto - saldo;
+    const sube = sinIva / A.meta * 100;
+    const mermaMonto = st.esAbono ? 0 : 2400;
+    const avanceFinal = A.real + sube - (mermaMonto / A.meta * 100);
+    const mw = {
+      cliente: trab.cliente, desc: trab.desc,
+      total: f(trab.total), abonado: f(trab.abonado), saldo: f(saldo),
+      esAbono: st.esAbono, esLiq: !st.esAbono,
+      swSub: st.esAbono ? 'Abono parcial: el trabajo sigue en la bandeja con su nuevo saldo.' : 'Apagado: es liquidación total del trabajo.',
+      swBg: st.esAbono ? '#4d7c3f' : '#d5d0c7', swBd: st.esAbono ? '#3f6633' : '#c4beb4', swX: st.esAbono ? '22px' : '2px',
+      swBoxBg: st.esAbono ? '#f2f5f0' : '#faf8f5', swBdBox: st.esAbono ? '#d3ddcd' : '#e3dfd7',
+      montoLabel: st.esAbono ? 'MONTO DEL ABONO' : 'MONTO FINAL (precargado con el saldo, editable)',
+      montoVal: f(monto),
+      iva: st.iva,
+      ivaLinea: st.iva ? 'Subtotal sin IVA: ' + f(sinIva) + ' · IVA: ' + f(monto - sinIva) : 'Sin IVA: el monto entra completo a la meta.',
+      abonoPct: abonoPct + '%', saldoNuevo: f(Math.max(0, saldo - monto)),
+      pagadoTotal: pagadoTot + '%', pagadoW: pagadoTot + '%',
+      hayDif: Math.abs(dif) > 0.5,
+      dif: (dif < 0 ? '−' : '+') + f(dif),
+      dep: st.dep,
+      resumen: [
+        { k:'Entra a la meta (sin IVA)', v:'+' + f(sinIva), c:'#8fd47a' },
+        { k:'Sube el avance', v:'+' + sube.toFixed(1) + ' pts', c:'#8fd47a' },
+        { k: st.esAbono ? 'Merma en esta operación' : 'Baja por merma', v: st.esAbono ? 'No aplica en abonos' : '−' + (mermaMonto/A.meta*100).toFixed(1) + ' pts', c: st.esAbono ? '#8a857a' : '#e9b06a' },
+        { k:'Avance antes de la operación', v: A.real.toFixed(1) + '%', c:'#c9c5bb' }
+      ],
+      avanceFinal: avanceFinal.toFixed(1) + '%',
+      destTag: st.esAbono ? 'PERMANECE' : 'SALE',
+      destFg: st.esAbono ? '#3d5580' : '#3f6633',
+      destBd: st.esAbono ? '#c6cfdd' : '#cfdcc9',
+      destBg: st.esAbono ? '#f7f9fc' : '#f4f8f2',
+      destTxt: st.esAbono ? 'El trabajo sigue en la bandeja con saldo de ' + f(Math.max(0, saldo - monto)) + '.' : 'El trabajo queda liquidado y sale de la bandeja de pendientes.',
+      cta: st.dep
+        ? { txt: st.esAbono ? 'Registrar abono' : 'Liquidar trabajo', bg:'#1c1b18', fg:'#fff', bd:'#1c1b18', cur:'pointer' }
+        : { txt:'Marca el depósito para continuar', bg:'#e8e5df', fg:'#a09b91', bd:'#ddd8d0', cur:'not-allowed' }
+    };
+
+    return {
+      isColab, isAdmin: !isColab, stateChips,
+      goColab: () => S({ screen:'colab' }), goAdmin: () => S({ screen:'admin' }),
+      mesLabel:'Septiembre 2026', mesCorto:'septiembre', cierreFecha:'30 de septiembre', diasRest:11,
+      displayPct: st.displayPct, tramoCopy: copy, tramoTag: tag,
+      pctColor: p >= 100 ? '#fde68a' : (p >= 75 ? '#fdba74' : (p >= 41 ? '#a7f3d0' : '#bae6fd')),
+      pctShadow: p >= 100 ? '0 0 46px rgba(250,204,21,.35)' : (p >= 75 ? '0 0 40px rgba(251,146,60,.22)' : '0 0 34px rgba(56,189,248,.16)'),
+      celebra: p >= 75,
+      celebraTxt: p > 100 ? 'Meta rebasada. La bandera sigue ondeando.' : (p === 100 ? 'Bandera arriba. Meta cumplida.' : 'Salvavidas cruzado. Ya está asegurado.'),
+      stepsM: this.buildSteps(1, true), stepsD: this.buildSteps(1, false),
+      suman, nSuman: suman.length + ' este mes', espera, nEspera: espera.length + ' trabajos',
+      mermas, nMermas: mermas.length,
+
+      cards,
+      avReal: A.real.toFixed(1) + '%', avSin: A.sin.toFixed(1) + '%',
+      avDelta: (A.sin - A.real).toFixed(1) + ' pts',
+      avNota: A.nuevo ? 'Sin movimientos todavía.' : 'Las mermas son lo único que separa los dos números.',
+      bolsaBruta: f(A.bolsa), bolsaFinal: f(A.final),
+      estadoMes: st.locked ? 'MES ABIERTO · REGLAS FIJAS' : 'MES ABIERTO · REGLAS EDITABLES',
+      estadoMesBg: st.locked ? '#eef3ec' : '#fdf6ec',
+      estadoMesFg: st.locked ? '#3f6633' : '#8a5a2b',
+      estadoMesBd: st.locked ? '#cfdcc9' : '#e8d6b4',
+      bandeja, bandejaVacia, bandejaLlena: !bandejaVacia,
+      bandejaCount: bandejaRows.length + ' trabajos en espera',
+      bandejaMonto: f(totalEspera),
+      movs, sinMovs: A.nuevo, hayMovs: !A.nuevo,
+      reglas, rulesOpen: st.rulesOpen,
+      rulesToggleTxt: st.rulesOpen ? 'Colapsar' : 'Expandir',
+      toggleRules: () => S({ rulesOpen: !st.rulesOpen }),
+      reglasBd: st.locked ? '#d9d5cd' : '#b9b3a7',
+      reglasHeadBg: st.locked ? '#f7f5f1' : '#fdf6ec',
+      lockTxt: st.locked ? 'BLOQUEADAS' : 'EDITABLES',
+      lockGlyph: st.locked ? '⬤' : '○',
+      lockBg: st.locked ? '#efece6' : '#fff',
+      lockFg: st.locked ? '#5c5952' : '#8a5a2b',
+      lockBd: st.locked ? '#ddd8d0' : '#e8d6b4',
+      lockAction: st.locked ? 'Desbloquear con motivo' : 'Bloquear reglas del mes',
+      lockNota: st.locked ? 'Las reglas se fijaron al abrir el mes. Desbloquear exige un motivo por escrito y queda en el registro.' : 'Al bloquear, las reglas quedan fijas para todo el mes.',
+      toggleLock: () => S({ locked: !st.locked }),
+      swBg: st.libre ? '#4d7c3f' : '#d5d0c7', swBd: st.libre ? '#3f6633' : '#c4beb4', swX: st.libre ? '19px' : '2px',
+      toggleLibre: () => S({ libre: !st.libre }),
+      desglose, historial,
+      tipoCaptura: ['Pendiente nuevo','Merma suelta','Ajuste'].map(t => ({
+        label: t, on: () => S({ captura: t }),
+        bg: st.captura === t ? '#1c1b18' : '#fff',
+        fg: st.captura === t ? '#fff' : '#3b3934',
+        bd: st.captura === t ? '#1c1b18' : '#cdc8bf'
+      })),
+      modalOpen: !!st.modal, closeModal: () => S({ modal:null }),
+      openLiq: () => S({ modal:'x', esAbono:false, monto: saldo }),
+      toggleAbono: () => S({ esAbono: !st.esAbono, monto: !st.esAbono ? 40000 : saldo }),
+      toggleIva: () => S({ iva: !st.iva }),
+      toggleDep: () => S({ dep: !st.dep }),
+      onMonto: (e) => S({ monto: Number(String(e.target.value).replace(/[^0-9.]/g,'')) || 0 }),
+      mw
+    };
+  }
+}
+</script>
+</body>
+</html>

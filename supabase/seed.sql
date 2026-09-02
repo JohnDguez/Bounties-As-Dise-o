@@ -1,0 +1,2 @@
+-- Datos de ejemplo para probar las funciones de cálculo desde el editor SQL.
+-- Se llena en la Fase 1, junto con las migraciones.
