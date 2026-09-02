@@ -1,0 +1,10 @@
+.boton {
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: none;
+  background: var(--text-h);
+  color: var(--bg);
+  font-size: 15px;
+  cursor: pointer;
+  margin-top: 12px;
+}
