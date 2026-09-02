@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import BandejaPendientes from '../components/admin/BandejaPendientes'
+import CapturaSuelta from '../components/admin/CapturaSuelta'
 import MovimientosMes from '../components/admin/MovimientosMes'
 import { CierreHistorial, DesgloseBolsa, ReglasDelMes } from '../components/admin/PanelLateral'
 import ResumenMes from '../components/admin/ResumenMes'
@@ -15,7 +16,7 @@ const MESES = [
 
 export default function PanelAdmin() {
   const { sesion } = useAuth()
-  const { cargando, error, datos } = useResumenAdmin()
+  const { cargando, error, datos, recargar } = useResumenAdmin()
 
   return (
     <main className={styles.pagina}>
@@ -59,8 +60,15 @@ export default function PanelAdmin() {
 
             <div className={styles.filaPrincipal}>
               <div className={styles.columna}>
-                <BandejaPendientes pendientes={datos.pendientes} />
+                <BandejaPendientes
+                  pendientes={datos.pendientes}
+                  meta={Number(datos.mes.meta)}
+                  avanceActual={Number(datos.resumen.avance_real)}
+                  ivaPct={datos.ivaPct}
+                  onExito={recargar}
+                />
                 <MovimientosMes movimientos={datos.movimientos} />
+                <CapturaSuelta mesId={datos.mes.id} onExito={recargar} />
               </div>
               <div className={styles.columna}>
                 <ReglasDelMes mes={datos.mes} />
@@ -72,7 +80,13 @@ export default function PanelAdmin() {
         )}
 
         {!cargando && !error && datos && !datos.mes && (
-          <BandejaPendientes pendientes={datos.pendientes} />
+          <BandejaPendientes
+            pendientes={datos.pendientes}
+            meta={0}
+            avanceActual={0}
+            ivaPct={datos.ivaPct}
+            onExito={recargar}
+          />
         )}
       </div>
     </main>
