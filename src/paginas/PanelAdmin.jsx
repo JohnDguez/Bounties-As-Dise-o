@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import BandejaPendientes from '../components/admin/BandejaPendientes'
 import MovimientosMes from '../components/admin/MovimientosMes'
 import { CierreHistorial, DesgloseBolsa, ReglasDelMes } from '../components/admin/PanelLateral'
@@ -33,6 +34,9 @@ export default function PanelAdmin() {
           </div>
           <div className={styles.acciones}>
             <span className={styles.correo}>{sesion?.user?.email}</span>
+            <Link to="/" className={styles.enlaceColaborador}>
+              Ver vista de colaborador
+            </Link>
             <button className={styles.boton} onClick={() => supabase.auth.signOut()}>
               Cerrar sesión
             </button>

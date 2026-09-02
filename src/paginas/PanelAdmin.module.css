@@ -66,6 +66,13 @@
   color: #1c1b18;
 }
 
+.enlaceColaborador {
+  font-size: 12px;
+  font-weight: 600;
+  color: #1c1b18;
+  text-decoration: underline;
+}
+
 .boton {
   border: 1px solid #cdc8bf;
   background: #fff;
