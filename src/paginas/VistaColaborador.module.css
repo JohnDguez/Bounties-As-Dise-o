@@ -1,3 +1,15 @@
+/* ---------- Pantalla de PIN ---------- */
+.pantallaPin {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #0a0a0c;
+  color: #e4e4e7;
+  padding: 24px;
+}
+
 .formulario {
   display: flex;
   flex-direction: column;
@@ -35,8 +47,284 @@
   margin-top: 4px;
 }
 
-.linkAdmin {
+/* ---------- Tablero (Fase 4) ---------- */
+/* Fondo oscuro fijo a propósito: esta pantalla vive en un monitor
+   compartido todo el día, no debe cambiar con el tema del sistema de
+   quien la mire en ese momento. */
+.tablero {
+  min-height: 100svh;
+  background: radial-gradient(120% 80% at 50% 0%, #12121a 0%, #0a0a0c 60%);
+  color: #e4e4e7;
+  padding: 28px clamp(16px, 4vw, 48px) 60px;
+  font-family: 'IBM Plex Sans', system-ui, sans-serif;
+}
+
+.encabezado {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 28px;
+}
+
+.marca {
+  font-family: Archivo, sans-serif;
+  font-size: 22px;
+  font-weight: 600;
+  margin: 0;
+  color: #f4f4f5;
+}
+
+.mesEtiqueta {
+  display: block;
+  margin-top: 2px;
+  font: 400 12px 'IBM Plex Mono', monospace;
+  color: #71717a;
+  letter-spacing: 0.06em;
+}
+
+.filaSuperior {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  align-items: flex-end;
+}
+
+.columnaPct {
+  flex: 1 1 280px;
+  min-width: 260px;
+}
+
+.pctNumero {
+  font-family: Archivo, sans-serif;
+  font-weight: 200;
+  font-size: clamp(64px, 9vw, 110px);
+  line-height: 0.9;
+  letter-spacing: -0.03em;
+}
+
+.pctSimbolo {
+  font-size: 0.4em;
+  font-weight: 300;
+  color: #8b8b96;
+}
+
+.tramoCopy {
+  margin: 10px 0 0;
+  font: 300 20px/1.3 Archivo, sans-serif;
+  color: #d2d2dc;
+}
+
+.tramoTag {
+  margin: 4px 0 0;
+  font: 400 11px 'IBM Plex Mono', monospace;
+  color: #9296a1;
+  letter-spacing: 0.08em;
+}
+
+.celebra {
   margin-top: 16px;
-  font-size: 13px;
-  color: var(--text);
+  padding: 11px 15px;
+  border-radius: 10px;
+  border: 1px solid rgba(250, 204, 21, 0.32);
+  background: linear-gradient(90deg, rgba(250, 204, 21, 0.14), rgba(250, 204, 21, 0.02));
+  font: 500 13px Archivo, sans-serif;
+  color: #fde68a;
+}
+
+.diasCard {
+  margin-top: 22px;
+  padding: 16px 18px;
+  border-radius: 14px;
+  border: 1px solid #22222b;
+  background: #101017;
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+}
+
+.diasNumero {
+  font-family: Archivo, sans-serif;
+  font-weight: 200;
+  font-size: 44px;
+  line-height: 1;
+  color: #e8e8ef;
+}
+
+.diasTexto span {
+  font: 500 12px Archivo, sans-serif;
+  color: #b6b6c2;
+}
+
+.columnaEscalera {
+  flex: 1 1 380px;
+  display: flex;
+  justify-content: center;
+}
+
+.filaListas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 18px;
+  margin-top: 36px;
+}
+
+.lista {
+  min-width: 0;
+}
+
+.listaMermas {
+  min-width: 0;
+  padding: 16px 18px;
+  border-radius: 14px;
+  border: 1px solid #26241c;
+  background: rgba(245, 158, 11, 0.035);
+}
+
+.listaTitulo {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 4px;
+  font: 600 11px 'IBM Plex Mono', monospace;
+  color: #a1a1ad;
+  letter-spacing: 0.1em;
+}
+
+.listaMermas .listaTitulo {
+  color: #a8925f;
+}
+
+.listaContador {
+  color: #22d3ee;
+}
+
+.listaContadorApagado {
+  color: #7c7c88;
+}
+
+.listaNota {
+  margin: 0 0 10px;
+  font: 400 11px Archivo, sans-serif;
+  color: #9296a1;
+}
+
+.listaItems {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.listaVacia {
+  font: 400 12px Archivo, sans-serif;
+  color: #6b6b76;
+  margin: 6px 0;
+}
+
+.itemTrabajo {
+  display: flex;
+  align-items: flex-start;
+  gap: 11px;
+  padding: 12px 14px;
+  border-radius: 11px;
+  border: 1px solid #23232d;
+  background: linear-gradient(90deg, rgba(34, 211, 238, 0.05), rgba(34, 211, 238, 0));
+}
+
+.puntoVivo {
+  margin-top: 5px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #22d3ee;
+  box-shadow: 0 0 8px 1px rgba(34, 211, 238, 0.6);
+  flex: none;
+}
+
+.itemTexto {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.itemCliente {
+  font: 600 13px Archivo, sans-serif;
+  color: #e6e6ee;
+}
+
+.itemDesc {
+  font: 400 12px Archivo, sans-serif;
+  color: #8b8b99;
+}
+
+.itemFecha {
+  font: 400 11px 'IBM Plex Mono', monospace;
+  color: #9296a1;
+  flex: none;
+}
+
+.itemEnCamino {
+  padding: 12px 14px;
+  border-radius: 11px;
+  border: 1px dashed #26262f;
+  background: rgba(255, 255, 255, 0.012);
+}
+
+.itemEnCaminoTop {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.itemEspera {
+  font: 400 10px 'IBM Plex Mono', monospace;
+  color: #8b8b96;
+  white-space: nowrap;
+}
+
+.barraProgreso {
+  margin-top: 9px;
+  height: 3px;
+  border-radius: 2px;
+  background: #1e1e26;
+  overflow: hidden;
+}
+
+.barraLlena {
+  height: 100%;
+  border-radius: 2px;
+  background: rgba(148, 163, 184, 0.55);
+}
+
+.itemPct {
+  display: block;
+  margin-top: 5px;
+  font: 400 10px 'IBM Plex Mono', monospace;
+  color: #9a9aa6;
+}
+
+.itemMerma {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  padding-top: 9px;
+  border-top: 1px solid #232019;
+}
+
+.itemMerma .itemCliente {
+  font: 500 12px Archivo, sans-serif;
+  color: #a9a49a;
+}
+
+.itemMerma .itemDesc {
+  color: #78746c;
+}
+
+.linkAdmin {
+  display: inline-block;
+  margin-top: 40px;
+  font-size: 12px;
+  color: #52525b;
 }
